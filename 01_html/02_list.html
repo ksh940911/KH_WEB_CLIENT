@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>목록관련</h1>
+    <!--순서 없는 목록 unordered-list -->
+    <ul>
+        <li>html5</li>
+        <li>css3</li>
+        <li>javascript2015</li>
+    </ul>
+    <!-- 순서있는 목록 ordered-list -->
+    <ol>
+        <li>html5</li>
+        <li>css3</li>
+        <li>javascript2015</li>
+    </ol>
+    <!-- 중첩된 목록 -->
+    <ol>
+        <li>안녕
+            <ul>
+                <li>Hello</li>  
+                <li>Ni~hao</li>  
+            </ul>
+        </li>
+        <li>잘가</li>
+        <li>반가웠어</li>
+    </ol>
+    <!-- ul>li>ol>li*2 -->
+    <ul>
+        <li>ㄱ
+            <ol>
+                <li>ㄴ</li>
+                <li>ㄷ</li>
+            </ol>
+        </li>
+    </ul>
+
+    <!-- ul>li>ul>li*2 -->
+    <ul>
+        <li>ㄱ
+            <ul>
+                <li>ㄴ</li>
+                <li>ㄷ</li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- ^의 부모태그로 올라가기-->
+    <!-- ul>li>ul>li*2^^li>ul>li -->
+        <ul>
+        <li>A
+          <ul>
+            <li>a1</li>
+            <li>a2</li>
+          </ul>
+        </li>
+        <li>B
+          <ul>
+            <li>b2</li>
+          </ul>
+        </li>
+      </ul>
+    
+    <!-- 설명 목록 -->
+    <!-- dl>dt+dd -->
+    <dl>
+        <dt>제목</dt>
+        <dd>설명을 적으세요1</dd>
+        <dd>설명을 적으세요2</dd>
+        <dt>다른 제목</dt>
+        <dd>다른 설명을 적으세요1</dd>
+    </dl>
+
+    <!-- 실습문제_글자_태그_목록_태그 -->
+    <h1>소속 : KH정보교육원</h1>
+    <h3>이름 : 홍길동</h3>
+    <p>이메일 : honggd@gmail.com</p>
+    <hr>
+    <ul>
+        <li>프로그래밍 언어
+            <ul>
+                <li><del>java</del></li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>데이터베이스
+            <ul>
+                <li><del>Oracle</del></li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>화면 구현
+            <ol>
+                <li><mark>HTML5</mark></li>
+                <li>CSS5</li>
+                <li>JavaScript</li>
+                <li>JQuery</li>
+            </ol>
+        </li>
+    </ul>
+
+    <ul>
+        <li>서버 개발 기술
+            <ol style="list-style: lower-roman;">
+                <li><del>JDBC</del></li>
+                <li>Sevlet</li>
+                <li>JSP</li>
+                <li>AJAX</li>
+            </ol>
+        </li>
+    </ul>
+
+    <ul>
+        <li> 프레임워크
+            <ol style="list-style: lower-alpha;">
+                <li><strong>Spring</strong></li>
+                <li>MyBatis</li>
+            </ol>
+        </li>
+    </ul>
+</body>
+</html>
