@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<body>
+    <h1>form관련</h1><!--사용자값 입력가능-->
+    <!--
+        action : 폼이 제출될 server측 주소. 미작성시 현재주소로 제출됨.
+        method : GET(기본값) | POST 둘다 관례상 대문자로 써야함
+            1. GET http://127.0.0.1:5500/08_form.html?userEmail=sss%40naver.com
+                    url에 덧붙여 전송
+            2. POST http메세지 body영역에 작성. url에 노출되지 않는다.                    
+
+        *input태그의 name속성이 제출되는 key값이다.
+         name속성이 없으면 제출되지 않는다.
+    -->
+    <form
+        action=""
+        method="GET"><!-- method= "GET" | "POST" 두개다써보고 차이를 알아둘것 -->
+        <label for="userEmail">이메일</label><!--for는 id를 가리킴-->
+        <input type="text" name="userEmail" id="userEmail"><!--브라우져에서 이메일 입력하고 제출눌렀을때 url에 %40은 @를 의미함. 특수문자는 인코딩 문제로인해 변환되서 나타남.-->
+        <br>
+        <label for="userName">이름</label>
+        <input type="text" name="user-name" id="userName">
+        <br>
+        <input type="submit" value="제출">
+    </form>
+
+    <h2>text관련</h2>
+    <form action="">
+        <!-- form 하위에서 grouping 목적 -->
+        <fieldset>
+            <legend>회원정보</legend>
+            <!-- 한줄짜리 사용자입력을 처리 -->
+            <input 
+                type="text" 
+                name="memberName" 
+                id="memberName" 
+                placeholder="회원명"
+                value="홍길동"
+                readonly
+                required><!-- placeholder : 입력을 하기전에 나타나는 값. 입력시작하면 사라짐 | required : required="required"와 같음. 필수값으로 입력안하면 제출못함. | readonly : readonly="readonly"와 같음. 홍길동이라는 값 변경불가.  -->
+            <br>
+            <input type="password" name="memberPwd" id="memberPwd" maxlength="8">
+        </fieldset>
+        
+        <fieldset>
+            <legend>기타정보</legend>
+            <input type="search" name="searchKeyword" id="searchKeyword" placeholder="검색어를 입력하세요.">
+            <br><br>
+            <!-- 이메일형식 검사 @포함여부 -->
+            <input type="email" name="memberEmail" id="memberEmail">
+            <br><br>
+            <input type="url" name="memberHomepage" id="memberHomepage">
+            <br><br>
+            <!-- 핸드폰에서 숫자키보드를 제공 -->
+            <input type="tel" name="memberTel" id="memberTel" value="010-1234-1234">
+        </fieldset>
+        <fieldset>
+            <legend>자기소개</legend>
+            <textarea
+                name="selfIntroduce"
+                id="selfIntroduce"
+                cols="30"
+                rows="10"
+                style="resize:none;">안녕
+잘가
+반가웠어    </textarea><!--브라우져에서 자기소개 입력하고 제출눌렀을때 url에 %0D%0A는 개행문자를 의미함. 크기조절가능. 크기조절 싫으면 style="resize:none;" 입력해주면 됨-->
+        </fieldset>
+        
+        <!-- 버튼만들기 2가지방법 -->
+
+        <!-- 1. input태그로 button생성 -->
+        <!-- 
+        <input type="submit" value="제출">
+        <input type="reset" value="초기화"> value로 설정한 초기값은 지워지지않으며, 값을 변경하고 초기화 누를시 초기값으로 변경된다.
+        <input type="button" value="그냥 버튼">
+        -->
+
+        <!-- 2. button태그로 button생성. type속성을 반드시 작성할 것 : type="submit"이 기본값임 -->
+        <button type="submit">제출</button>
+        <button type="reset">초기화</button>
+        <button type="button">그냥 버튼</button>
+    </form>
+
+    <h2>숫자관련</h2>
+    <form action="">
+        <fieldset>
+            <legend>숫자</legend>
+            <input type="number" name="point" id="point" max="100" min="0" step="5" style="width: 100px;">
+            <br>
+            <!-- input:range[max=100][min] -->
+            <input type="range" name="userAmount" id="userAmount" max="100" min="1">
+        </fieldset>
+        <button type="submit">제출</button>
+    </form>
+    <!-- 실습문제_form_태그 -->
+    <form action="">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <label for="납품자명">1. 납품자명(필수) : </label>
+            <input type="text" name="납품자명" id="납품자명" required>
+            <br>
+            <label for="이메일">2. email(필수) : </label>
+            <input type="text" name="이메일" id="이메일" placeholder="answer@naver.com" required>
+            <br>
+            <label for="홈페이지">3. 홈페이지 : </label>
+            <input type="text" name="홈페이지" id="홈페이지" value="http://">
+            <br>
+            <label for="지역">4. 지역 : </label>
+            <select name="지역" id="지역">
+                <option value="부산">부산</option>
+                <option value="서울">서울</option>
+                <option value="대구">대구</option>
+                <option value="광주">광주</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>납품 정보</legend>
+        </fieldset>
+    </form>
+</body>
+</html>

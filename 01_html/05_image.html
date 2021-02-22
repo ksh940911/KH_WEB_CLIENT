@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img</title>
+    <style>
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지관련</h1>
+    <img src="sample/image/flower1.PNG" alt="꽃사진" /><!--너비,높이 지정안하면 파일이갖고있는 실제크기로 나옴 / 너비만 지정하면 실제크기에서 비율대로 높이도 줄여줘서 보여줌--><!--상대주소-->
+    <img src="https://img8.yna.co.kr/mpic/YH/2019/03/02/MYH20190302010500038.jpg" alt="설악산 봄꽃"/><!-- 구글링해서 마우스우클릭 '이미지 주소 복사' 해서 온라인상의 사진도 가져올수 있음--><!--절대주소-->
+    <img src="https://img8.yna.co.kr/mpic/YH/2019/03/02/MYH201903021233121233213123123123123123010500038.jpg" alt="설악산 봄꽃"/><!-- 이미지주소에서 불러올수없으면 alt에 기입한 대체텍스트가 나옴--><!--절대주소-->
+
+    <hr>
+
+    <h2>절대값 | 상대값<h2>
+    <div>
+        <!-- px픽셀 : 절대값이므로, 화면(viewport)이 변해도 너비,높이가 변하지않는다. -->
+        <img src="sample/image/flower1.PNG" style="width: 250px;" />
+        <img src="sample/image/flower2.PNG" style="width: 250px;" />
+        <img src="sample/image/flower3.PNG" style="width: 250px;" />
+        <img src="sample/image/flower4.PNG" style="width: 250px;" />
+    </div>        
+    <hr>
+    <div>
+        <!-- %는 상대값이므로, 화면(viewport)대비 너비/높이값이 변한다. -->
+        <img src="sample/image/flower1.PNG" style="width: 23%;" />
+        <img src="sample/image/flower2.PNG" style="width: 23%;" />
+        <img src="sample/image/flower3.PNG" style="width: 23%;" />
+        <img src="sample/image/flower4.PNG" style="width: 23%;" />
+    </div>        
+
+    <h2>이미지링크</h2>
+    <a href="http://w3schools.com" title="와삼스쿨로 이동하기">
+        <img src="sample/image/tiger.jpg" alt="타이거사진">
+    </a>
+
+    <h3>image map</h3><!--이미지를 나눠서 여러링크를 걸수있음-->
+    <img src="sample/image/river1.PNG" style="width: 500px;" alt="두물머리사진" usemap="#mymap">
+    <map name="mymap">
+        <!-- shape= rect | circle | poly -->
+        <area shape="rect" coords="0,0,250,333" href="http://google.com" alt="구글이동" >
+        <area shape="rect" coords="250,0,500,333" href="http://naver.com" alt="네이버이동" >
+    </map>
+    <img src="sample/image/hyunta.jpg" usemap="#imgmap2021222173922"
+    <map id="imgmap2021222173922" name="imgmap2021222173922"><area shape="circle" alt="" title="" coords="168,238,150" href="http://naver.com" target="" /><area shape="poly" alt="" title="" coords="321,238,365,279,327,316,330,277" href="http://google.com" target="" /><!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
+
+    <h2>이미지배치</h2>
+    <!-- div>img+p>lorem*10 -->
+    <div>
+        <img src="sample/image/forest1.PNG" style="float:left;"><!--떠서왼쪽에배치. 다른요소들이 옆에붙어서 올라옴-->
+        <p><span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod debitis, beatae ab rerum reprehenderit quas sed dignissimos velit, eius, adipisci nihil alias dolor ducimus est! Quod, tenetur. Odit, velit facere!</span><span>Ad nostrum repellendus voluptatem eum! Optio, expedita inventore eaque atque omnis fugiat accusantium architecto magnam accusamus nulla dolor ratione repellendus praesentium esse reprehenderit natus officia deleniti? Eius commodi et voluptatibus?</span><span>Ea provident ipsum aliquam, beatae molestiae sint! Nobis iste odit laboriosam sint aliquid cum debitis quasi repudiandae fugiat at, necessitatibus non perspiciatis voluptatem tempora, sapiente similique nihil ea asperiores in!</span><span>Iste nam similique natus, provident saepe delectus quaerat, nesciunt laboriosam esse dolore quam exercitationem ratione eius voluptatibus dolor officiis velit labore eos dolorem blanditiis repellendus culpa. Aperiam repellat est et!</span><span>Libero, illo similique autem corrupti architecto fugit rerum ex deserunt itaque atque totam illum accusantium incidunt voluptate odit doloribus explicabo ad aliquam harum nostrum quam qui! Ipsum maxime odio molestiae.</span><span>Officiis quos ullam ipsam facere magni aliquid, obcaecati modi asperiores consequuntur soluta minus vel nam, nostrum quae atque, aliquam neque impedit dicta! Quas assumenda quos, quae quis dicta impedit velit!</span><span>Beatae necessitatibus voluptatibus aut minus esse natus optio nulla expedita? Ipsum doloremque dolor nihil voluptatem. Quae provident maxime vitae ut nulla exercitationem soluta rem harum explicabo aut! Aliquam, eius nostrum.</span><span>Nesciunt sit quidem earum labore ratione animi, commodi reprehenderit eum nemo totam iusto in ducimus, cum quaerat explicabo harum dolore atque numquam aut voluptates impedit voluptatum. Neque accusantium blanditiis accusamus.</span><span>Tempore vero labore omnis tempora asperiores facere cumque consectetur suscipit modi corporis, dicta voluptatum praesentium itaque vel doloremque reiciendis ipsa deleniti quos! Facere ullam fuga enim, aut non maiores illo!</span><span>Fuga mollitia illo dolorum cumque inventore illum amet commodi voluptate repudiandae soluta expedita nulla, minus excepturi quibusdam pariatur, alias qui cum. Labore architecto quasi ipsum unde explicabo ad veniam voluptate.</span></p>
+    </div>
+    <div>
+        <img src="sample/image/forest1.PNG" style="float:right;"><!--떠서왼쪽에배치. 다른요소들이 옆에붙어서 올라옴-->
+        <p><span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod debitis, beatae ab rerum reprehenderit quas sed dignissimos velit, eius, adipisci nihil alias dolor ducimus est! Quod, tenetur. Odit, velit facere!</span><span>Ad nostrum repellendus voluptatem eum! Optio, expedita inventore eaque atque omnis fugiat accusantium architecto magnam accusamus nulla dolor ratione repellendus praesentium esse reprehenderit natus officia deleniti? Eius commodi et voluptatibus?</span><span>Ea provident ipsum aliquam, beatae molestiae sint! Nobis iste odit laboriosam sint aliquid cum debitis quasi repudiandae fugiat at, necessitatibus non perspiciatis voluptatem tempora, sapiente similique nihil ea asperiores in!</span><span>Iste nam similique natus, provident saepe delectus quaerat, nesciunt laboriosam esse dolore quam exercitationem ratione eius voluptatibus dolor officiis velit labore eos dolorem blanditiis repellendus culpa. Aperiam repellat est et!</span><span>Libero, illo similique autem corrupti architecto fugit rerum ex deserunt itaque atque totam illum accusantium incidunt voluptate odit doloribus explicabo ad aliquam harum nostrum quam qui! Ipsum maxime odio molestiae.</span><span>Officiis quos ullam ipsam facere magni aliquid, obcaecati modi asperiores consequuntur soluta minus vel nam, nostrum quae atque, aliquam neque impedit dicta! Quas assumenda quos, quae quis dicta impedit velit!</span><span>Beatae necessitatibus voluptatibus aut minus esse natus optio nulla expedita? Ipsum doloremque dolor nihil voluptatem. Quae provident maxime vitae ut nulla exercitationem soluta rem harum explicabo aut! Aliquam, eius nostrum.</span><span>Nesciunt sit quidem earum labore ratione animi, commodi reprehenderit eum nemo totam iusto in ducimus, cum quaerat explicabo harum dolore atque numquam aut voluptates impedit voluptatum. Neque accusantium blanditiis accusamus.</span><span>Tempore vero labore omnis tempora asperiores facere cumque consectetur suscipit modi corporis, dicta voluptatum praesentium itaque vel doloremque reiciendis ipsa deleniti quos! Facere ullam fuga enim, aut non maiores illo!</span><span>Fuga mollitia illo dolorum cumque inventore illum amet commodi voluptate repudiandae soluta expedita nulla, minus excepturi quibusdam pariatur, alias qui cum. Labore architecto quasi ipsum unde explicabo ad veniam voluptate.</span></p>
+    </div>
+
+</body>
+</html>
