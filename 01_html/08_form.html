@@ -97,31 +97,34 @@
             <input type="range" name="userAmount" id="userAmount" max="100" min="1">
         </fieldset>
         <button type="submit">제출</button>
-    </form>
+    </form><br><br>
+
     <!-- 실습문제_form_태그 -->
     <form action="">
         <fieldset>
             <legend>납품자 정보</legend>
-            <label for="납품자명">1. 납품자명(필수) : </label>
-            <input type="text" name="납품자명" id="납품자명" required>
-            <br>
-            <label for="이메일">2. email(필수) : </label>
-            <input type="text" name="이메일" id="이메일" placeholder="answer@naver.com" required>
-            <br>
-            <label for="홈페이지">3. 홈페이지 : </label>
-            <input type="text" name="홈페이지" id="홈페이지" value="http://">
-            <br>
-            <label for="지역">4. 지역 : </label>
-            <select name="지역" id="지역">
-                <option value="부산">부산</option>
-                <option value="서울">서울</option>
-                <option value="대구">대구</option>
-                <option value="광주">광주</option>
-            </select>
+                <ol>
+                    <li>납품자명(필수) : <input type="text" name="납품자명" id="납품자명" required></li><br>
+                    <li>email(필수) : <input type="text" name="이메일" id="이메일" placeholder="answer@naver.com" required></li><br>
+                    <li>홈페이지 : <input type="text" name="홈페이지" id="홈페이지" value="http://"></li><br>
+                    <li>지역 : <select name="지역" id="지역">
+                        <option value="부산">부산</option>
+                        <option value="서울">서울</option>
+                        <option value="대구">대구</option>
+                        <option value="광주">광주</option>
+                    </select></li>
+                </ol>         
         </fieldset>
         <fieldset>
             <legend>납품 정보</legend>
-        </fieldset>
+                <ul>
+                    <li>상품명(필수) : <input type="text" name="상품명" id="상품명" required></li><br>
+                    <li>납품수량(필수) : <input type="number" name="납품수량" id="납품수량" placeholder="최소 100" min="100" required></li><br>
+                    <li>납품등급(필수) : <input type="range" name="납품등급" id="납품등급" required></li><br>
+                    <li>기타사항 : <textarea name="기타사항" id="기타사항" cols="20" rows="2"></textarea></li>
+                </ul>
+        </fieldset><br>
+        <button type="submit">send message</button>
     </form>
 </body>
 </html>
