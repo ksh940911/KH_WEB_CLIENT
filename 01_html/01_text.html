@@ -13,7 +13,7 @@
     <h3>머릿글3</h3>
     <h4>머릿글4</h4>
     <h5>머릿글5</h5>
-    <h6>머릿글6</h6>
+    <h6>머릿글6</h6><br>
     <!-- h$*6 쓰고 TAB -->
     <h1></h1>
     <h2></h2>
@@ -30,7 +30,7 @@
     <h6>머리글6</h6>   
     
     <!-- 문단태그 -->
-    <P>안녕하세요.                                                      홍길동입니다.</P>
+    <br><P>안녕하세요.                                                      홍길동입니다.</P>
     안녀아세요                                                                              ㅇㄹㅁㄴㅇㄹㅁㄴㅇ
     ㅇㄹㅇㄹ
     <!-- 공백 아무리 많이 써도 하나만 인식됨. 개행문자랑 공백(띄어쓰기)을 아무리 많이써도 띄어쓰기 한개만 인정-->
@@ -41,22 +41,22 @@
 
     <!-- br; 개행한줄-->
     <br> <!--html용 개행문자-->
-    <p>안녕하세요</p>
+    <p>안녕하세요</p><br>
 
     <!--pre-formatted 미리 형식지정이 된 태그 공백/개행처리-->
     <pre>
         안녕하세요                          ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
         잘가!
-    </pre>
+    </pre><br>
     
     <!-- 특수문자 처리 -->
     <!--<p> "특수문자" & <tag></p> -->
-    <p>&lt;p&gt; &quot;특수문자&quot; &amp; &lt;tag&gt;&lt;&#47;p&gt;</p>
+    <p>&lt;p&gt; &quot;특수문자&quot; &amp; &lt;tag&gt;&lt;&#47;p&gt;</p><br>
 
-    <!-- block요소 : 행 끝까지 영역을 사용하는 태그 hn, p, pre등 -->
+    <!-- block요소 : 행 끝까지 영역을 사용하는 태그 hn(h1,h2,h3...), p, pre등 -->
     <!-- inline요소 : 컨텐츠부분만 영역으로 사용하는 태그 a, strong, em, del 등(한줄 띄고싶으면<br>필수) -->
-    <strong>안녕</strong>
-    <strong>ㅋㅋㅋ</strong>
+    <strong>안녕</strong><br>
+    <strong>ㅋㅋㅋ</strong><br><br>
 
     <!-- phrase tag : html5 semantic tag 중 일부. 태그의 의미에 따라 내용을 작성해야함.-->
     <!-- 스크린리더(화면을 볼수없는 시각장애인을 위한)가 해석할때 적절한 문맥을 제공할 수 있다.-->
@@ -65,13 +65,13 @@
     <del>취소선(삭선) 처리할 내용을 작성</del><br>
     <mark>형광펜효과로 강조하는 내용을 작성</mark><br>
     <ins>밑줄을 삽입해서 강조하는 내용을 작성</ins><br>
-    <abbr title="Internet of Things">IOT</abbr>란 각종 사물에 센서와 통신기능을 추가해 인터넷 연결한 제품이다.
+    <abbr title="Internet of Things">IOT</abbr>란 각종 사물에 센서와 통신기능을 추가해 인터넷 연결한 제품이다.<!-- IOT에 마우스대고있으면보이는 주석달기 -->
     <p>
         자바의 출력문은        
         <code>System.out.println("Hello World~");</code> 입니다.
     </p>
     <p>
-        이번 내용은 <em><strong>아주 완전</strong></em> 중요합니다.   
+        이번 내용은 <em><strong><ins><mark>아주 완전</strong></em></ins></mark>&nbsp; 중요합니다. <!-- 텍스트를 감싸서 여러개의 태그 중첩사용가능 -->   
     </p>
  
   </body>

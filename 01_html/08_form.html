@@ -99,14 +99,106 @@
         <button type="submit">제출</button>
     </form><br><br>
 
+    <h2>날짜/시간관련</h2>
+    <form action="">
+        <fieldset>
+            <legend>날짜</legend>
+            <label for="birthday">생일</label>
+            <input type="date" name="birthday" id="birthday" value="2020-01-01">
+            <br>
+            <label for="reservation">예약</label>
+            <input type="time" name="reservation" id="reservation" value="21:30">
+            <br>
+            <label for="kakao-reserv">카카오 미용실 예약</label>
+            <input type="datetime-local" name="kakao=reserv" id="kakao=reserv" value="2020-01-01T13:30">
+            <!-- 날짜/시간 표준 포맷 iso-8601 : yyyy-mm-ddThh:mi -->
+        </fieldset>
+        
+        <button type="submit">submit</button>
+    </form>
+
+    <h2>선택관련</h2>
+    <form>
+        <fieldset>
+            <legend>라디오</legend>
+            <input type="radio" name="gender" id="gender-male" value="m">
+            <label for="gender-male">남</label>
+            <input type="radio" name="gender" id="gender-female" value="f" checked><!-- checked는 기본선택값 -->
+            <label for="gender-female">여</label>
+        </fieldset><!-- radio는 name으로 그루핑한 값중에 한가지만 선택하게함 같은 name(key)여야 value 중 하나만 선택하게할수있음. 눌렀다가 취소가안됨 취소하려면 checkbox써야함 -->
+
+        <fieldset>
+            <legend>체크박스</legend>
+            <input type="checkbox" name="hobby" id="hobby-music" value="music" checked><!-- checked는 기본선택값 -->
+            <label for="hobby-music">음악감상</label>
+            <input type="checkbox" name="hobby" id="hobby-game" value="game">
+            <label for="hobby-game">게임</label>
+            <input type="checkbox" name="hobby" id="hobby-fitness" value="fitness">
+            <label for="hobby-fitness">운동</label><!-- name으로 그루핑한 값중에 여러개 선택가능. 여러개 선택시 $(앰퍼샌드)로 묶어서 제출됨. 눌렀다가 취소가능 -->
+
+            <br>
+
+            <label for="mailOk">메일수신</label>
+            <input type="checkbox" name="mailOk" id="mailOk">
+            <!-- value속성이 없다면, 체크시에 "on"값이 전송된다. -->
+        </fieldset>
+
+        <fieldset>
+            <legend>select</legend>
+            <label for="nation">국적 : </label>
+            <select name="nation" id="nation" multiple>
+                <optgroup label="America">
+                    <option value="usa" selected>미국</option>
+                </optgroup>
+                <optgroup label="Asia">
+                    <option value="kor">한국</option>
+                    <option value="jpn">일본</option>
+                    <option value="chn">중국</option>
+                </optgroup>
+            </select><!-- select : drop-down menu --><!-- optgroup은 선택불가 -->
+            <br>
+
+            <label for="menu">메뉴 선택</label>
+            <!-- datalist : select + input:text --><!-- 골라보고 없으면 니가 직접써! -->
+            <input type="text" name="menu" id="menu" list="menu-list">
+            <datalist id="menu-list"><!-- datal enter누르면 자동완성됨 -->
+                <option value="된장찌개">된장찌개</option>
+                <option value="김치찌개">김치찌개</option>
+                <option value="순두부찌개">순두부찌개</option>
+            </datalist>
+        </fieldset>
+        <input type="submit" value="제출">
+    </form>
+
+    <h2>기타</h2>
+    <form action="">
+        <fieldset>
+            <legend>기타</legend>
+            <label for="userColor">컬러 : </label>
+            <!-- input:color#userColor 자동완성 -->
+            <input type="color" name="userColor" id="userColor" value="#00ff62">
+            <br>
+
+            <label for="upFile">파일업로드 : </label>
+            <!-- input:file#upFile[name=upFile] 자동완성 -->
+            <input type="file" name="upFile" id="upFile">
+            <br>
+
+            <input type="hidden" name="notvisible" value="저는안보이지만,전송은 됩니다.">
+            <input type="text" name="userId" id="userId" value="honggd" disabled><!-- diabled는 전송이 안되게 만듦 -->
+        </fieldset>
+
+        <input type="submit" value="전송">
+    </form> 
+
     <!-- 실습문제_form_태그 -->
     <form action="">
         <fieldset>
             <legend>납품자 정보</legend>
                 <ol>
-                    <li>납품자명(필수) : <input type="text" name="납품자명" id="납품자명" required></li><br>
-                    <li>email(필수) : <input type="text" name="이메일" id="이메일" placeholder="answer@naver.com" required></li><br>
-                    <li>홈페이지 : <input type="text" name="홈페이지" id="홈페이지" value="http://"></li><br>
+                    <li><label for="납품자명">납품자명(필수) : </label><input type="text" name="납품자명" id="납품자명" required></li><br>
+                    <li>email(필수) : <input type="email" name="이메일" id="이메일" placeholder="answer@naver.com" required></li><br>
+                    <li>홈페이지 : <input type="url" name="홈페이지" id="홈페이지" value="http://"></li><br>
                     <li>지역 : <select name="지역" id="지역">
                         <option value="부산">부산</option>
                         <option value="서울">서울</option>
@@ -124,7 +216,50 @@
                     <li>기타사항 : <textarea name="기타사항" id="기타사항" cols="20" rows="2"></textarea></li>
                 </ul>
         </fieldset><br>
-        <button type="submit">send message</button>
+        <button type="submit">send message</button><!-- input type="submit" value="send message" -->
+    </form><br><br>
+    <!-- 실습문제_html_태그 종합문제 --><!-- 이거하고 css로 넘어갈꺼임 -->
+    <form action="">
+        <label for="고객명">고객명 : </label>
+        <input type="text" name="고객명" id="고객명"><br><br>
+        <label for="전화번호">전화번호(필수) : </label>
+        <input type="number" name="전화번호" id="전화번호" required><br><br>
+        <label for="이메일2">E-mail : </label>
+        <input type="email" name="이메일2" id="이메일2"><br><br>
+        <label for="피자선택">피자선택(필수) : </label>
+        <select name="피자선택" id="피자선택" required>
+            <option value="default" selected disabled>피자를 선택하세요</option>
+            <option value="potato">포테이토피자</option>
+            <option value="sweetpotato">고구마피자</option>
+            <option value="cheese">치즈피자</option>
+        </select><br><br>
+        <fieldset>
+            <legend>피자 사이즈(필수)</legend>
+            <input type="radio" name="pizzasize" id="small" value="Small">
+            <label for="small">Small</label><br><br>
+            <input type="radio" name="pizzasize" id="medium" value="Medium" checked>
+            <label for="medium">Medium</label><br><br>
+            <input type="radio" name="pizzasize" id="large" value="Large">
+            <label for="large">Large</label><br><br>
+        </fieldset><br>
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="베이컨" id="베이컨">
+            <label for="베이컨">베이컨</label><br><br>
+            <input type="checkbox" name="치즈" id="치즈">
+            <label for="치즈">치즈</label><br><br>
+            <input type="checkbox" name="양파" id="양파">
+            <label for="양파">양파</label><br><br>
+            <input type="checkbox" name="버섯" id="버섯">
+            <label for="버섯">버섯</label><br><br>
+        </fieldset><br><br>
+
+        <label for="희망배송시간">희망 배송 시간 : </label>
+        <input type="time" name="희망배송시간" id="희망배송시간"><br><br>
+
+        <label for="배송요청사항">배송시 요청사항 : </label>
+        <textarea name="배송요청사항" id="배송요청사항" cols="30" rows="5"></textarea><br><br>
+        <input type="submit" value="주문하기">
     </form>
 </body>
 </html>
