@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+</head>
+<body>
+    <h1>선택자</h1> 
+    <div>
+        <ul>
+            <li id="li-html5">html5</li>
+            <li>css3</li>
+            <li id="li-js" class="favor">javascript2015</li><!-- class는 태그들을 그루핑하기위한 태그 -->
+            <li>jquery</li>
+            <li class="favor">python</li>
+            <li class="favor">node.js</li>
+            <li class="favor special">springframework</li>
+        </ul>
+    </div>
+    <style>
+    /* 태그선택자(li태그만, h1태그만 골라서 스타일먹이기) */    
+    li {
+        color: tomato
+    }
+    h1 {
+        color: violet;
+    }
+
+    /* 아이디선택자(li-js아이디만 골라서 스타일먹이기) : #을통해 선택자 지정*/
+    #li-js {
+        font-size: 32px;
+        color: magenta;
+    }
+
+    /* 클래스선택자(favor클래스만 골라서 스타일먹이기) : .을통해 선택자 지정 */
+    .favor {
+        background-color: thistle;
+    }
+
+    /* 복수개선택자 */
+    h1, .favor {
+        text-decoration: underline;
+    }
+
+    /* 복수개 이상의 클래스선택자*/
+    .favor.special {
+        color: slateblue;
+        font-size: 48px;
+    }
+    </style>
+
+    <hr>
+
+    <div class="wrapper">
+        <h4>머리글 h4</h4>
+        <!-- ul#first-ul>li*2 -->
+        <ul id="first-ul">
+            <li>에라이1</li>
+            <li>에라이2</li>
+        </ul>
+        <!-- div#secont-div -->
+        <div id="secont-div">
+            <h4>머리글 h4</h4>
+            <ul>
+                <li>에라이3</li>
+                <li>에라이4</li>
+            </ul>
+        </div>
+    </div>
+    <style>
+    /* 자식 태그 */         
+    div.wrapper > h4 {
+        color: springgreen;
+    }    
+    /* 후손 태그(자식 태그 포함) */         
+    div.wrapper h4 {
+        text-decoration: line-through;
+    }
+    /* #first-ul > li { */
+    /* .wrapper > ul { */ 
+    .wrapper ul li {
+        background-color: brown;
+    }
+    </style>
+
+    <div class="container">
+        <!-- p#p-test${안녕$}*5 -->
+        <p id="p-test1">안녕1</p>
+        <p id="p-test2">안녕2</p>
+        <p id="p-test3">안녕3</p>
+        <p id="p-test4">안녕4</p>
+        <p id="p-test5">안녕5</p>
+        <pre id="pre-test6">안녕6</pre>
+    </div>
+    <style>
+    
+    /* 다음 형제요소 하나 */ 
+    p#p-test2 {
+        background-color: #f00;
+    }    
+    p#p-test2 + p {
+        background-color: #00f;
+        color: #fff;
+    }
+
+    /* 다음 형제요소 모두(*) 또는 선택자(p) 일치하는 태그 */
+    p#p-test2 ~ * {
+        font-size: 24px;
+    }
+
+    p#p-test2 ~ p {
+        font-size: 28px;
+    }
+
+    /* 이전 형제요소를 가리키는 선택자는 없다. */
+    </style><!-- #ff0000 = #f00 6자리를 3자리로 줄인거임 -->
+
+<form action="">
+    <fieldset>
+      <legend>속성관련 선택자</legend>
+      <input type="text"><br>
+      <input type="text" name="user-name"><br>
+      <input type="email" name="user-email"><br>
+      <input type="text" name="petname"><br>
+    </fieldset>
+  </form>
+  <style>
+    /* 속성 선택자 */
+    /* [name]{
+      background-color: hotpink;
+    } */
+    /* [name=user-name] {
+      background-color: hotpink;
+    } */
+    /* 포함 */
+    /*
+    [name*=er]{
+      background-color: hotpink;
+    }
+    */
+    /* 시작 */
+    /*
+    [name^=user]{
+      background-color: hotpink;
+    }
+    */
+    /* 끝 */
+    [name$=name]{
+      background-color: hotpink;
+    }
+    </style>
+
+    <h2>가상선택자</h2>
+    <div class="box click">click me!</div>
+    <div class="box over">커서를 이동하세요.</div>
+    <style>
+    .box {
+        cursor : pointer;
+        border : 2px solid rebeccapurple;
+        padding : 10px;
+        margin : 10px;
+    }
+    /* 클릭했을때 속성을 지정한다. */
+    .click:active {
+        background-color: rebeccapurple;
+        color: #fff;
+    }
+    /* 마우스포인터를 갖다댔을때 속성을 지정한다. */
+    .over:hover {
+        color: #f00;
+        border : 2px dashed red;
+    }
+    </style>
+
+    <a href="http://www.innerbody.com/htm/body.html">어떤 사이트(방문전 | 방문후 | 커서hover | 클릭)</a>
+    <!-- a태그는 기본적으로 text-decoration underline을 기본으로 갖고있음 -->
+    <style>
+    a:link {color: aqua; text-decoration: none;}
+    a:visited {color: olive;}
+    a:hover {text-decoration: underline;}
+    a:active {color: tomato;}        
+    </style><br><br>
+
+    <input type="checkbox" name="smsOk" id="smsOk">
+    <label for="smsOk">문자수신</label>
+    <style>
+    input[type=checkbox]:checked {
+        width: 200px;
+        height: 200px;
+    }
+    input[type=checkbox]:checked + label {
+        font-size: 200px;
+    }
+    </style>
+
+    <h2>구조선택자</h2>
+    <!-- div.test>p{테스트$}*10 -->
+    <div class="test">
+        <p>테스트1</p>
+        <p>테스트2</p>
+        <p>테스트3</p>
+        <p>테스트4</p>
+        <p>테스트5</p>
+        <p>테스트6</p>
+        <p>테스트7</p>
+        <p>테스트8</p>
+        <p>테스트9</p>
+        <p>테스트10</p>
+    </div>
+    <!-- div.test생략해도 됨 첫번째자식에게 적용할건지 마지막자식에게 적용할건지가 중요해서 -->
+    <!-- <p>테스트1</p>가 <pre>테스트1</p>로 바뀌면 div.test p:first-child {가 작동하지않음 p인 첫번째자식이 없어서 -->
+    <!-- div.test :first-child {로 p빼버리면 다시 잘 작동함-->    
+
+    <style>
+    /*        
+    div.test p:first-child {
+        background-color: teal;
+        color: white;
+    }
+    */
+    /*        
+    p:last-child {
+        background-color: green;
+        color: gold;
+    }
+    */
+
+    /* 1-based index를 지정할수있다. ↓2번째자식에게 스타일먹여라 / ↓2n번째(짝수)자식에게 스타일먹여라/ ↓2n+1번째(홀수)자식에게 스타일먹여라 */
+    p:nth-child(2){
+        text-decoration: underline;
+    }
+    p:nth-child(2n){
+        text-decoration: underline;
+    }
+    p:nth-child(2n+1){
+        background-color: indianred;
+        color: white;
+    }
+
+    /* p태그중에서 첫번째 태그찾기 */ 
+    p:first-of-type {
+        background-color: royalblue;
+    }
+    p:last-of-type {
+        background-color: seagreen;
+    }
+    p:nth-of-type(4) {
+        background-color: slateblue;
+    }
+
+    /* 부정선택자 : not(선택자) */
+    div.test > :not(p){
+        font-size: 24px;
+    }
+
+    /* 최상위선택자 : root -> html */
+    :root {
+        background-color: whitesmoke;
+    }
+
+    </style>
+
+    <h2>선택자 우선순위</h2>
+    <div class="wrapper">
+    <div id="mydiv" class="test" style="background-color: crimson;">우선순위 테스트</div><!-- 인라인속성 -->
+    </div>
+    <style>
+    /* 태그 -> 속성 -> 클래스 -> 아이디 -> 인라인속성 -> !important */
+    div {
+        width: 500px;
+        height: 500px;
+        background-color: darkturquoise !important;
+    }
+
+    div {
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+    }
+    
+    /* 클래스 */
+    .test {
+        background-color: bisque;
+    }
+
+    /* 아이디 */
+    #mydiv {
+        background-color: thistle;
+    }
+
+    .test {
+    background-color: bisque;
+    font-size: 24px;
+    }
+
+    .wrapper .test {
+    font-size: 36px;
+    }
+
+
+
+
+
+    </style>
+
+    
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css - border</title>
+</head>
+<body>
+  <h1>Border</h1>
+
+  <div class="test"></div>
+  <style>
+  .test {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-color: lightsteelblue;
+    /* border-width: 1px; 
+    border-style: solid;
+    border-color: black; */
+    border : 5px solid black;
+    /* border-radius: 30px; */
+    /* border-radius: 50% 40% 30% 20%; */ 
+    /* border-radius: 50% 40% 30%; box_model과 같이 생략되면 맞은편 값을 가져와서 반영해줌*/
+    /* border-radius: 50% 40% ; box_model과 같이 생략되면 맞은편 값을 가져와서 반영해줌*/
+    border-radius: 50%; /* 50%가되면 원이된다. */
+  }
+  </style>
+
+  <h2>box-shoadow</h2>
+  <div class="box"></div>
+  <style>
+  .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightseagreen;
+      border: 5px solid black;
+      border-radius: 10px;
+      margin: 10px auto;
+      /* 가로offset 세로offset 번짐 그림자크기 color */
+      /* box-shadow: 5px 5px 15px 5px gray; hover했을경우에만 그림자효과 적용하고 싶으면 따로 하나더 만들어줘야함. hover일경우 스타일과 그냥 .box일경우 스타일 */
+  }
+  .box:hover {
+      /* 가로offset 세로offset 번짐 그림자크기 color */
+      box-shadow: 5px 5px 15px 5px gray;
+  }
+  </style>
+  
+</body>
+</html>

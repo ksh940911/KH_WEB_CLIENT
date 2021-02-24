@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css - font</title>
+</head>
+<body>
+    <h1>Font</h1>
+    <div class="wrapper">
+        <p id="ff1">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+        <p id="ff2">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+        <p id="ff3">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+    </div>
+    <style>
+    p {
+        font: 32px;
+    }
+    .wrapper {
+        font-size: 24px;
+    }
+    #ff1 {
+        /* 왼쪽부터 우선순위가 높다. 오른쪽 끝에는 generic-family라는 기본서체 */
+        /* 왼쪽부터 글씨체가 없을경우 좌측에서 우측 우선순위로 글씨체 적용됨. */
+        /* serif | sans-serif | cursive | menospaced */
+        font-family: 홍길동날라차기체, "궁서체";
+        font-size: 32px; /* px : 절대값 단위 */
+        /* "sans serif"처럼 공백이 있을경우나 ""안에 넣는게 유효하고 큰따옴표 빼도 위의 경우는 ""안에 공백없어서 글씨체 적용잘됨 */
+    }
+    #ff2 {
+        font-family: 'Gugi', cursive;
+        font-size: 2em; /* 상대값 단위(가장 가까운 부모요소 기준 : 1em = 16px) */
+    }
+    #ff3 {
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 150%; /* % : 상대값 단위(가장 가까운 부모요소 기준. 100% = 16px) */
+    }
+
+    /* cascade 부모태그에 적용한 속성이 자식(후손)태그로 전이되어서 처리됨 */
+    body {
+        font-family: 'Black And White Picture', sans-serif;
+    }
+</style>
+
+<hr>
+
+<ul>
+  <li id="li1">글꼴 얇게</li>
+  <li id="li2">글꼴 두껍게</li>
+  <li id="li3">글꼴 더두껍게</li>
+</ul>
+<style>
+ul{
+  font-weight: 200;
+}
+li { 
+  font-size: 32px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+#li1 {
+  font-weight: 200;
+}
+#li2 {
+  font-weight: bold;
+}
+#li3 {
+  font-weight: bolder;
+}
+</style>
+
+<span id="font">안녕하세요 ABCDEFG abcdefg 1234567890</span>
+<style>
+span#font {
+  /* font-style font-variant font-weight font-size/line-height font-family */
+  font: italic bold 24px/30px 'Noto Sans KR';
+}
+
+</style>
+
+</body>
+</html>

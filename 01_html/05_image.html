@@ -36,20 +36,25 @@
         <img src="sample/image/flower4.PNG" style="width: 23%;" />
     </div>        
 
-    <h2>이미지링크</h2>
+    <h2>이미지링크</h2><!-- 단일이미지 클릭시 해당링크로 이동시키기 -->
     <a href="http://w3schools.com" title="와삼스쿨로 이동하기">
         <img src="sample/image/tiger.jpg" alt="타이거사진">
     </a>
 
-    <h3>image map</h3><!--이미지를 나눠서 여러링크를 걸수있음-->
+    <h3>image map</h3><!-- 이미지를 나눠서 여러링크를 걸수있음 -->
     <img src="sample/image/river1.PNG" style="width: 500px;" alt="두물머리사진" usemap="#mymap">
     <map name="mymap">
-        <!-- shape= rect | circle | poly -->
-        <area shape="rect" coords="0,0,250,333" href="http://google.com" alt="구글이동" >
+        <!-- shape= rect | circle | poly(다각형) -->
+        <area shape="rect" coords="0,0,250,333" href="http://google.com" alt="구글이동" ><!-- coordinates : 좌표 --><!-- href(hypertext reference) : 하이퍼텍스트 참조 --><!-- alt(alternative) : 대안 -->
         <area shape="rect" coords="250,0,500,333" href="http://naver.com" alt="네이버이동" >
+    </map><br>
+
+    <img src="sample/image/hyunta.jpg" style="width: 400px;" usemap="#imgmap202122435436">
+    <map id="imgmap202122435436" name="imgmap202122435436">
+        <area shape="circle" alt="깃허브" title="깃허브" coords="122,265,100" href="https://github.com/ksh940911" target="_blank" /><!-- 멍뭉이입 -> 깃허브이동 --><!-- coords="122,265,100" | "x1,y1,r" 원 -->
+        <area shape="poly" alt="벨로그" title="벨로그" coords="201,45,327,20,275,103" href="https://velog.io/@kchief" target="_blank" /><!-- 멍뭉이위쪽귀 -> 벨로그이동 --><!-- coords="201,45,327,20,275,103" | "x1,y1,x2,y2,x3,y3" 삼각형-->
+        <area shape="poly" alt="블로그" title="블로그" coords="311,235,389,270,296,304" href="https://blog.naver.com/ksh940911" target="_blank" /><!-- 멍뭉이아래쪽귀 -> 블로그이동 --><!-- "x1,y1,x2,y2,x3,y3" 삼각형 -->
     </map>
-    <img src="sample/image/hyunta.jpg" usemap="#imgmap2021222173922"
-    <map id="imgmap2021222173922" name="imgmap2021222173922"><area shape="circle" alt="" title="" coords="168,238,150" href="http://naver.com" target="" /><area shape="poly" alt="" title="" coords="321,238,365,279,327,316,330,277" href="http://google.com" target="" /><!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
 
     <h2>이미지배치</h2>
     <!-- div>img+p>lorem*10 -->

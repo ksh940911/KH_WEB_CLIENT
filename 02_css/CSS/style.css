@@ -1,0 +1,5 @@
+/* style태그 없이 css코드만 작성. 스타일태그안에는 이주석(/* * /')만 가능함 */ 
+#p-third{
+    background-color: dodgerblue;
+    color: white;
+}
