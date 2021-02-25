@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css - transform | transition</title>
+</head>
+<body>
+  <h1>transform</h1><!-- 두가지상태(a->b)를 사진두개 갤러리보기하듯이 바로똭똭 바뀌는것 바뀌는시간 0초소요 손바닥뒤집기처럼 탁탁바뀜 자연스럽게 X -->
+  <div class="wrapper">
+      <img src="sample/image/flower1.PNG" class="transform-translate">
+      <hr>
+      <img src="sample/image/flower2.PNG" class="transform-scale">
+      <hr>
+      <img src="sample/image/flower3.PNG" class="transform-rocate">
+      <hr>
+  </div>
+  <style>
+  .transform-translate:hover {
+    /* transform: translateX(50px); */
+    /* transform: translateY(50px); */
+    transform: translate(50px, 50px); /* x,y만큼 동시에 이동시켜줌 */
+  }
+  .transform-scale:hover {
+    transform: scale(.5, 0.5); /* 크기 비율만큼 키워주거나 작게만들어줌 cf).5=0.5랑 같음 생략된거임 */
+  }
+  .transform-rocate:hover {
+    transform: rotate(30deg); /* 'X'deg 'X'도만큼 회전시켜줌. 30도만큼 그림을 회전시켜줌*/
+  }
+  .wrapper {
+      text-align: center;
+  }
+  .wrapper img {
+      width: 250px;
+  }
+  </style>
+  
+
+  <h1>transition</h1><!-- 두가지상태(a->b)를 동영상처럼 스르륵 바뀌는것 -->
+  <div class="wrapper">
+      <img src="sample/image/flower1.PNG" class="transition transform-translate">
+      <hr>
+      <img src="sample/image/flower2.PNG" class="transition transform-scale">
+      <hr>
+      <img src="sample/image/flower3.PNG" class="transition transform-rocate">
+      <hr>
+  </div>
+  <style>
+  .transition {
+      transition-duration: 1s; /* 전환 효과가 적용되는 시간 설정 */
+      /* transition적용할 속성. 기본값 all */
+      transition-property: all; /* transition시 전환 효과가 적용될 속성 범위 설정 none | all | property | initial | inherit . 기본값 all */
+      transition-delay: .5s; /* 상태변환전에 기다리는시간 설정 */
+      transition-timing-function: ease-in; /* linear | ease | ease-in | ease-out | ease-in-out ... */
+  }
+  </style>
+
+<div class="tile">
+    <h1>코로나19바이러스</h1>
+    <h2 class="text-transition">코로나19 드디어 백신으로 잠재우다.</h2>
+    <p class="text-transition">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro praesentium quasi minus reprehenderit quas enim aliquid, dolorem, quam libero optio sint accusamus, quos odit a error aliquam reiciendis! Natus.</p>
+  </div>
+  <div class="tile">
+    <h1>코로나19바이러스</h1>
+    <h2 class="text-transition">코로나19 드디어 백신으로 잠재우다.</h2>
+    <p class="text-transition">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro praesentium quasi minus reprehenderit quas enim aliquid, dolorem, quam libero optio sint accusamus, quos odit a error aliquam reiciendis! Natus.</p>
+  </div>
+  <div class="tile">
+    <h1>코로나19바이러스</h1>
+    <h2 class="text-transition">코로나19 드디어 백신으로 잠재우다.</h2>
+    <p class="text-transition">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro praesentium quasi minus reprehenderit quas enim aliquid, dolorem, quam libero optio sint accusamus, quos odit a error aliquam reiciendis! Natus.</p>
+  </div>
+  <div class="tile">
+    <h1>코로나19바이러스</h1>
+    <h2 class="text-transition">코로나19 드디어 백신으로 잠재우다.</h2>
+    <p class="text-transition">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit porro praesentium quasi minus reprehenderit quas enim aliquid, dolorem, quam libero optio sint accusamus, quos odit a error aliquam reiciendis! Natus.</p>
+  </div>
+  <style>
+  .tile {
+      width: 380px;
+      height: 380px;
+      margin: 10px;
+      padding: 30px;
+      background-color: #99aeff;
+      box-shadow: 0px 35px 77px -17px rgb(0, 0, 0, .4);
+      color: #fff;
+      overflow: hidden; /*overflow(넘친것들) 감춰라!*/
+      display: inline-block;
+  }
+  .tile h1 {
+      font-weight: 200;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, .4);
+  }
+  .tile h2 {
+     font-weight: 200;
+     margin: 20px 0 0 0;
+     font-style: italic;
+     transform: translateX(380px);
+  }
+  .tile p {
+     font-weight: 200;
+     margin: 20px 0 0 0;
+     transform: translateX(-380px);
+     transition-delay: .2s;
+  }
+  .text-transition {
+      opacity: .2;
+      transition: all .6s ease-out;
+  }
+  .tile:hover {
+      box-shadow: 0px 35px 77px -17px rgba(0, 0, 0, .8);
+  }
+  .tile:hover .text-transition {
+      transform: translateX(0);
+      opacity: 1;
+  }
+  </style>
+  <div class="img-wrapper">
+    <img src="sample/image/hyunta.jpg" alt="">
+  </div>  
+  <style>
+  .img-wrapper {
+      width: 300px;
+      padding: 5px;
+      border: 1px solid gray;
+      overflow: hidden;
+  }
+  .img-wrapper img {
+      width: 100%;
+      transition: .8s;
+  }    
+  .img-wrapper:hover img {
+      transform: scale(1.2, 1.2);
+  }    
+  </style>
+
+
+
+
+  <h1>animation</h1><!-- 여러가지 상태(a->b->c->d)로 스르륵 바뀌는 것 -->
+  
+</body>
+</html>

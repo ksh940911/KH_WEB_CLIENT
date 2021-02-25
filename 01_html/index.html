@@ -4,15 +4,15 @@
         <title>HTML 인덱스</title>
     </head>
     <body><!--실제화면에보여질태그들-->
-        <h1>HTML</HTML></h1><!--머리글태그-->>
+        <h1>HTML</HTML></h1><!--머리글태그-->
         <p>Hyper Text Markup Language</p>
         <hr><!--수평 줄긋기태그-->
         <ul><!--목록태그-->
             <li>a</li>
             <li>b</li>
             <li>c</li>
-            <li><a href="01_text.html" target="_parent">text관련</a></li><!--<a href="01_text.html">text관련</a> : 하이퍼텍스트(링크)만드는태그-->
-            <!-- li>a 쓰고 tab누르면 자동완성-->
+            <li><a href="01_text.html" target="_parent">text관련</a></li><!--<a href="01_text.html">text관련</a> : 하이퍼텍스트(링크)만드는태그--><!-- target="_parent" 한단계위(부모)에서 링크실행 페이지안의페이지안의페이지에서 실행할경우 iframe탈출불가. 페이지안의페이지에서 iframe에 담겨실행됨 -->
+            <!-- li>a 쓰고 tab누르면 자동완성--><!-- target="_top" 최상위에서 링크실행 페이지안의페이지안의페이지안에서 실행시켜도 iframe탈출! -->
             <li><a href="02_list.html" target="_top">목록관련</a></li>
             <li><a href="03_table.html">테이블관련</a></li>
             <li><a href="04_block_inline_element.html">block요소 | inline요소</a></li>
@@ -22,7 +22,7 @@
             <li><a href="08_form.html">form관련</a></li><!--★★★★★대박중요함★★★★★-->
             <!--
                 절대주소 : (WINDOW)C:\users\ 어쩌구저쩌구, (MAC)Users/user1 어쩌구저쩌구, http:// 어쩌구저쩌구 -> 시작 루트(Root)부터 작성.
-                상대주소 : 현재페이지부터 경로를 파악.  ./ 어쩌구저쩌구 -> 현재디렉토리  ../ 어쩌구저쩌구 -> 부모디렉토리
+                상대주소 : 현재페이지부터 경로를 파악.  ./ 어쩌구저쩌구 -> 현재디렉토리  ../ 어쩌구저쩌구 -> 부모디렉토리 ./는 생략가능
             -->
         </ul>
 

@@ -16,16 +16,18 @@
         preload : 재생전에 미리 다운로드받아두기할지 여부(auto | metadata | none)
     -->
     <audio src="sample/audio/major.mp3" controls></audio><!--속성명과 속성값이 같으면 생략해도 입력한걸로 여김 원래는 controls="controls"이여야함 -->
-    <audio src="sample/audio/major.mp3" controls autoplay muted><!-- controls (autoplay | loop | muted | preload) 해보기 -->
+    <audio src="sample/audio/major.mp3" controls muted loop preload="auto"><!-- preload는 velog참조. 간단설명 :  페이지가 로드될때 파일이 같이 로드되어야하는지 여부. 단, autoplay 속성이 설정되어 있다면, preload 속성은 무시됨. -->
         <!-- fallback -->
-        당신의 브라우져는 audio태그를 사용할 수 없습니다.
+        당신의 브라우져는 audio태그를 사용할 수 없습니다. <!--재생안될시 뜨는 문구지정-->
     </audio>        
 
     <!-- 여러개의 source파일을 제공해서 device별로 최적화된 파일재생 가능 -->
-    <audio controls>
+    <audio controls><!-- 여기에 src코드를 작성하지않고 자식태그에 작성 -->
         <source src="sample/audio/major.mp3"/>
+        <source src="sample/audio/major.wav"/>
+        <source src="sample/audio/major.ogg"/><!-- 세 가지 포맷 파일중 디바이스별 최적화된 파일 골라서 재생시켜줌 -->
         <!-- fallback -->
-        당신의 브라우져는 audio태그를 사용할 수 없습니다. <!--재생안될시 뜨는 문구지정-->
+        당신의 브라우져는 audio태그를 사용할 수 없습니다. <!-- <audio> 요소 내에 위치하는 텍스트는 사용자의 브라우저가 <audio> 요소를 지원하지 않을 경우 화면에 표시됩니다. -->
     </audio>
 
     <h2>video</h2>
@@ -37,17 +39,19 @@
         width | height
         poster : 비디오재생전에 노출할 이미지(썸네일)
     -->
-    <video src="sample/video/small.mp4" controls>
+    <video src="sample/video/small.mp4" controls loop width="500px" poster="sample/image/tower1.PNG">
         당신의 브라우져는 video태그를 지원하지 않습니다. <!--재생안될시 뜨는 문구지정-->
     </video>
-    <video controls><!-- 3개다 실행되는게 아니고 디바이스가 위에서부터 맘에드는거 골라서 1개실행-->
+
+    <video autoplay muted loop><!-- 3개다 실행되는게 아니고 디바이스가 위에서부터 맘에드는거 골라서 1개실행--><!-- controls가 없어도 자동재생해놓으면 영상자동재생됨 -->
         <!--
             web browser : mp4 - webm - ogg순으로 재생
             mobile : mp4 - 3gp 순으로 재생
         -->
         <source src="sample/video/small.webm" type="video/webm">
-        <source src="sample/video/small.ogv" type="video/ogg"><!--확장자는 ogv고 갖다쓸때는 ogg로 씀-->    
+        <source src="sample/video/small.ogv" type="video/ogg"><!-- 파일형식은 ogv인데 미디어타입은 ogv임. velog참조 -->
         <source src="sample/video/small.mp4" type="video/mp4">
+            당신의 브라우져는 video태그를 지원하지 않습니다. <!--재생안될시 뜨는 문구지정-->
     </video>
 
     <h2>유튜브 영상 가져오기</h2>
