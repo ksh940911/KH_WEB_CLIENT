@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css - layout</title>
+  <style>
+  div {
+    padding: 10px;
+  }
+  #container {
+    background-color: #f0f0f0;
+    width: 960px;
+    margin: 0 auto;
+  }
+  #header {
+    background-color: #908886;
+    height: 100px;
+  }
+  #content {
+    background-color: #f5f5f5;
+    width: 640px;
+    height: 400px;
+    float: left;
+  }
+  #sideinfo {
+    background-color: #dcdad9;
+    width: 280px;
+    height: 400px;
+    float: left;
+  }
+  #footer {
+    clear: both;  /* clear : left | right | both(left&right). header content sideinfo float뒤에 footer가 이상한데가있음. clear로 float left clear처리! */
+    background-color: #555;
+    height: 100px;
+  }
+
+  
+  </style>
+</head>
+<body>
+    <!-- html5 이전의 페이지 레이아웃 -->
+    <div id="container">
+      <div id="header">Header</div>
+      <div id="content">Content</div>
+      <div id="sideinfo">Side Info</div>
+      <div id="footer">Footer</div>
+    </div>
+</body>
+</html>
