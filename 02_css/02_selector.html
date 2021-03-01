@@ -16,13 +16,13 @@
             <li>jquery</li>
             <li class="favor">python</li>
             <li class="favor">node.js</li>
-            <li class="favor special">springframework</li>
+            <li class="favor special">springframework</li><!-- 클래스 2개를 동시에 가지고있음 favor, special -->
         </ul>
     </div>
     <style>
     /* 태그선택자(li태그만, h1태그만 골라서 스타일먹이기) */    
     li {
-        color: tomato
+        color: tomato;
     }
     h1 {
         color: violet;
@@ -96,26 +96,25 @@
     </div>
     <style>
     
-    /* 다음 형제요소 하나 */ 
-    p#p-test2 {
-        background-color: #f00;
-    }    
+    /* 아이디선택자 */
+    p#p-test2 { /* #앞에 p빼도 상관없음 */
+        background-color: #f00; /* #ff0000 = #f00 6자리를 3자리로 줄인거임 */
+    }
+    /* 인접 동위선택자 : 다음 형제요소 하나 */     
     p#p-test2 + p {
         background-color: #00f;
         color: #fff;
     }
-
-    /* 다음 형제요소 모두(*) 또는 선택자(p) 일치하는 태그 */
+    /* 일반 동위선택자 : 다음 형제요소 모두(*) 또는 선택자(p) 일치하는 태그 */
     p#p-test2 ~ * {
         font-size: 24px;
     }
-
     p#p-test2 ~ p {
         font-size: 28px;
     }
 
     /* 이전 형제요소를 가리키는 선택자는 없다. */
-    </style><!-- #ff0000 = #f00 6자리를 3자리로 줄인거임 -->
+    </style>
 
 <form action="">
     <fieldset>
@@ -170,7 +169,7 @@
     /* 마우스포인터를 갖다댔을때 속성을 지정한다. */
     .over:hover {
         color: #f00;
-        border : 2px dashed red;
+        border : 2px dashed red; /* dashed : border속성중 외곽선을 점선으로 만들어준다. */
     }
     </style>
 
@@ -190,7 +189,7 @@
         width: 200px;
         height: 200px;
     }
-    input[type=checkbox]:checked + label {
+    input[type=checkbox]:checked + label { /* input태그의 type속성이 checkbox인 애들이 checked(선택된상태)일때, 다음 형제요소 중 태그선택자가 label인 선택자의 font-size를 200px로 만들어라 */
         font-size: 200px;
     }
     </style>
@@ -198,7 +197,7 @@
     <h2>구조선택자</h2>
     <!-- div.test>p{테스트$}*10 -->
     <div class="test">
-        <p>테스트1</p>
+        <pre>테스트1</pre>
         <p>테스트2</p>
         <p>테스트3</p>
         <p>테스트4</p>
@@ -207,33 +206,40 @@
         <p>테스트7</p>
         <p>테스트8</p>
         <p>테스트9</p>
-        <p>테스트10</p>
+        <pre>테스트10</pre>
     </div>
     <!-- div.test생략해도 됨 첫번째자식에게 적용할건지 마지막자식에게 적용할건지가 중요해서 -->
-    <!-- <p>테스트1</p>가 <pre>테스트1</p>로 바뀌면 div.test p:first-child {가 작동하지않음 p인 첫번째자식이 없어서 -->
+    <!--  -->
     <!-- div.test :first-child {로 p빼버리면 다시 잘 작동함-->    
 
     <style>
-    /*        
+    /* p태그이면서 첫번째 자식인 태그 */
+    /*       
     div.test p:first-child {
         background-color: teal;
         color: white;
     }
-    */
-    /*        
+    <p>테스트1</p>가 <pre>테스트1</p>로 바뀌면 div.test p:first-child {가 작동하지않음 p태그이면서 첫번째자식이 없어서
+    */ 
+
+    /* p태그이면서 마지막번째 자식인 태그 */
+    /* 
     p:last-child {
         background-color: green;
         color: gold;
-    }
+    } 
+    <p>테스트10</p>가 <pre>테스트10</p>로 바뀌면 div.test p:last-child {가 작동하지않음 p태그이면서 마지막번째자식이 없어서
     */
 
-    /* 1-based index를 지정할수있다. ↓2번째자식에게 스타일먹여라 / ↓2n번째(짝수)자식에게 스타일먹여라/ ↓2n+1번째(홀수)자식에게 스타일먹여라 */
+    /* 1-based index를 지정할수있다. p태그이면서 ↓2번째자식에게 스타일먹여라 */
     p:nth-child(2){
         text-decoration: underline;
     }
+    /* p태그이면서 ↓2n번째(짝수)자식에게 스타일먹여라 */
     p:nth-child(2n){
         text-decoration: underline;
     }
+    /* p태그이면서 ↓2n+1번째(홀수)자식에게 스타일먹여라 */
     p:nth-child(2n+1){
         background-color: indianred;
         color: white;
@@ -252,7 +258,7 @@
 
     /* 부정선택자 : not(선택자) */
     div.test > :not(p){
-        font-size: 24px;
+        font-size: 36px;
     }
 
     /* 최상위선택자 : root -> html */
@@ -260,53 +266,48 @@
         background-color: whitesmoke;
     }
 
-    </style>
+    </style><br><br>
 
     <h2>선택자 우선순위</h2>
     <div class="wrapper">
-    <div id="mydiv" class="test" style="background-color: crimson;">우선순위 테스트</div><!-- 인라인속성 -->
+    <div id="mydiv" name="t" class="test" style="background-color: crimson;">우선순위 테스트</div><!-- 인라인속성 -->
     </div>
     <style>
-    /* 태그 -> 속성 -> 클래스 -> 아이디 -> 인라인속성 -> !important */
+    /* 태그 < 속성 < 클래스 < 아이디 < 인라인속성 < !important : 부등호 큰순으로 우선순위가 높다. */
+    
+    /* 태그 */
+    div {
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+    }
+    /* 속성 */
+    [name="t"] {
+        background-color: #000;
+    }
+    /* 클래스 */
+    .test {
+        background-color: bisque;
+    }
+    /* 아이디 */
+    #mydiv {
+        background-color: thistle;
+    }
+    /* !important */
     div {
         width: 500px;
         height: 500px;
         background-color: darkturquoise !important;
     }
 
-    div {
-        width: 500px;
-        height: 500px;
-        background-color: aquamarine;
-    }
-    
-    /* 클래스 */
-    .test {
-        background-color: bisque;
-    }
-
-    /* 아이디 */
-    #mydiv {
-        background-color: thistle;
-    }
-
+    /* 같은 .test클래스를 갖는 div를 가리켜도 부모자식관계를 따져서 가리키게되면 더 높은 우선순위를 가진다. 구체적으로 작성한게 우선순위가 높다. */
     .test {
     background-color: bisque;
     font-size: 24px;
     }
-
-    .wrapper .test {
+    .wrapper .test { /* ↑보다 우선순위가 높다. */
     font-size: 36px;
     }
-
-
-
-
-
     </style>
-
-    
-
-
 </body>
 </html>

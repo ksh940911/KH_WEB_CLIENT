@@ -7,76 +7,76 @@
     <title>css - font</title>
 </head>
 <body>
-    <h1>Font</h1>
-    <div class="wrapper">
-        <p id="ff1">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
-        <p id="ff2">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
-        <p id="ff3">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
-    </div>
-    <style>
-    p {
-        font: 32px;
-    }
-    .wrapper {
-        font-size: 24px;
-    }
-    #ff1 {
-        /* 왼쪽부터 우선순위가 높다. 오른쪽 끝에는 generic-family라는 기본서체 */
-        /* 왼쪽부터 글씨체가 없을경우 좌측에서 우측 우선순위로 글씨체 적용됨. */
-        /* serif | sans-serif | cursive | menospaced */
-        font-family: 홍길동날라차기체, "궁서체";
-        font-size: 32px; /* px : 절대값 단위 */
-        /* "sans serif"처럼 공백이 있을경우나 ""안에 넣는게 유효하고 큰따옴표 빼도 위의 경우는 ""안에 공백없어서 글씨체 적용잘됨 */
-    }
-    #ff2 {
-        font-family: 'Gugi', cursive;
-        font-size: 2em; /* 상대값 단위(가장 가까운 부모요소 기준 : 1em = 16px) */
-    }
-    #ff3 {
-        font-family: 'Noto Sans KR', sans-serif;
-        font-size: 150%; /* % : 상대값 단위(가장 가까운 부모요소 기준. 100% = 16px) */
-    }
+  <h1>Font</h1>
+  <div class="wrapper">
+    <p id="ff1">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+    <p id="ff2">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+    <p id="ff3">가나다라마바사 abcdefg ABCDEFG 1234567890</p>
+  </div>
+  <style>
+  p {
+    font-size: 32px;
+  }
+  .wrapper {
+    font-size: 24px;
+    line-height: normal; /* normal(웹브라우저에서 정한 기본값. 보통 1.2) | initial(초기값) | inherit(부모 요소의 속성값을 상속) | length(길이로 줄 높이를 정함) : 48px | number(글자 크기의 몇 배인지로 줄 높이를 정함) : 1.2 | percentage(글자 크기의 몇 %로 줄 높이로 정함) : 200% */
+  }
+  #ff1 {
+    /* 왼쪽부터 우선순위가 높다. 오른쪽 끝에는 generic-family(serif(장식있는거) | sans-serif(장식없는거) | cursive(필기체) | monospace(글자마다 폭이똑같은체))라는 기본서체 */
+    /* 왼쪽부터 글씨체가 없을경우 좌측에서 우측 우선순위로 글씨체 적용됨. */
+    font-family: 홍길동날라차기체, "궁서체"; /* "sans serif"처럼 공백이 있을경우나 ""안에 넣는게 유효하고 큰따옴표 빼도 위의 경우는 ""안에 공백없어서 글씨체 적용잘됨 */
+    font-size: 32px; /* px : 절대값 단위 */        
+    font-variant: small-caps; /* 텍스트에 포함된 영문자중 소문자를 대문자로 바꾸되, 사이즈를 작게해서 바꿈. */
+  }
+  #ff2 {
+    font-family: 'Gugi', cursive;
+    font-size: 2em; /* em : 상대값 배수 단위(가장 가까운 부모요소 기준. 현재 1em = 24px) */
+  }
+  #ff3 {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 150%; /* % : 상대값 백분율 단위(가장 가까운 부모요소 기준. 현재 100% = 24px) */
+  }
 
-    /* cascade 부모태그에 적용한 속성이 자식(후손)태그로 전이되어서 처리됨 */
-    body {
-        font-family: 'Black And White Picture', sans-serif;
-    }
-</style>
+  /* cascade 부모태그에 적용한 속성이 자식(후손)태그로 전이되어서 처리됨 */
+  body {
+    font-family: 'Gugi', cursive;
+  }
+  </style>
 
-<hr>
+  <hr>
 
-<ul>
-  <li id="li1">글꼴 얇게</li>
-  <li id="li2">글꼴 두껍게</li>
-  <li id="li3">글꼴 더두껍게</li>
-</ul>
-<style>
-ul{
-  font-weight: 200;
-}
-li { 
-  font-size: 32px;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-#li1 {
-  font-weight: 200;
-}
-#li2 {
-  font-weight: bold;
-}
-#li3 {
-  font-weight: bolder;
-}
-</style>
+  <ul>
+    <li id="li1">글꼴 얇게</li>
+    <li id="li2">글꼴 두껍게</li>
+    <li id="li3">글꼴 더두껍게</li>
+  </ul>
+  <!-- font-weight : lighter(상속된 값보다 얇은 굵기) | normal(400) | bold(700) | bolder(상속된 값보다 굵은 굵기) -->
+  <!-- font-weight : 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 -->
+  <style>
+  ul{
+    font-weight: 200;
+  }
+  li { 
+    font-size: 100px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  #li1 { /* lighter : 부모(ul)에게서 상속된 값(200)보다 얇은 굵기 */
+    font-weight: lighter;
+  }
+  #li2 {
+    font-weight: bold;
+  }
+  #li3 { /* bolder : 부모(ul)에게서 상속된 값(200)보다 굵은 굵기. 상대적이므로 200보단 굵지만 bold(700)보다 작을수있다. */
+    font-weight: bolder;
+  }
+  </style>
 
-<span id="font">안녕하세요 ABCDEFG abcdefg 1234567890</span>
-<style>
-span#font {
-  /* font-style font-variant font-weight font-size/line-height font-family */
-  font: italic bold 24px/30px 'Noto Sans KR';
-}
-
-</style>
-
+  <span id="font">안녕하세요 abcdefg ABCDEFG 1234567890</span>
+  <style>
+  span#font {
+    /* font-style font-variant font-weight font-size/line-height font-family */
+    font: italic small-caps bold 24px/48px 'Noto Sans KR';
+  }
+  </style>
 </body>
 </html>
