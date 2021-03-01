@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css - font</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Gugi&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <h1>Font</h1>
@@ -25,22 +27,22 @@
     /* 왼쪽부터 우선순위가 높다. 오른쪽 끝에는 generic-family(serif(장식있는거) | sans-serif(장식없는거) | cursive(필기체) | monospace(글자마다 폭이똑같은체))라는 기본서체 */
     /* 왼쪽부터 글씨체가 없을경우 좌측에서 우측 우선순위로 글씨체 적용됨. */
     font-family: 홍길동날라차기체, "궁서체"; /* "sans serif"처럼 공백이 있을경우나 ""안에 넣는게 유효하고 큰따옴표 빼도 위의 경우는 ""안에 공백없어서 글씨체 적용잘됨 */
-    font-size: 32px; /* px : 절대값 단위 */        
+    font-size: 60px; /* px : 절대값 단위 */        
     font-variant: small-caps; /* 텍스트에 포함된 영문자중 소문자를 대문자로 바꾸되, 사이즈를 작게해서 바꿈. */
   }
   #ff2 {
-    font-family: 'Gugi', cursive;
-    font-size: 2em; /* em : 상대값 배수 단위(가장 가까운 부모요소 기준. 현재 1em = 24px) */
+    font-family: 'Black And White Picture', sans-serif; /* font-family: 'Gugi', cursive; */
+    font-size: 2.5em; /* em : 상대값 배수 단위(가장 가까운 부모요소 기준. 기본값 1em = 16px, 현재 1em = 24px) */
   }
   #ff3 {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 150%; /* % : 상대값 백분율 단위(가장 가까운 부모요소 기준. 현재 100% = 24px) */
+    font-size: 220%; /* % : 상대값 백분율 단위(가장 가까운 부모요소 기준. 기본값 100% = 16px, 현재 100% = 24px) */
   }
 
   /* cascade 부모태그에 적용한 속성이 자식(후손)태그로 전이되어서 처리됨 */
   body {
     font-family: 'Gugi', cursive;
-  }
+  } /* 페이지내의 모든 font를 통일하고 싶을때 상위요소에 body를 사용해서 작성하면됨. 모든 body 후손태그는 Gugi체 적용됨. 다만 우선순위에따라 태그보다 높은 우선순위인 아이디 선택자로 스타일 따로 먹인애들은 Gugi체에서 다른 글씨체로 덮어씌워지는것이다.  */
   </style>
 
   <hr>
@@ -49,24 +51,25 @@
     <li id="li1">글꼴 얇게</li>
     <li id="li2">글꼴 두껍게</li>
     <li id="li3">글꼴 더두껍게</li>
-  </ul>
+  </ul><br><br>
+  <hr>
   <!-- font-weight : lighter(상속된 값보다 얇은 굵기) | normal(400) | bold(700) | bolder(상속된 값보다 굵은 굵기) -->
   <!-- font-weight : 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 -->
   <style>
   ul{
-    font-weight: 200;
+    font-weight: 300;
   }
   li { 
     font-size: 100px;
     font-family: 'Noto Sans KR', sans-serif;
   }
-  #li1 { /* lighter : 부모(ul)에게서 상속된 값(200)보다 얇은 굵기 */
+  #li1 { /* lighter : 부모(ul)에게서 상속된 값(300)보다 얇은 굵기 */
     font-weight: lighter;
   }
   #li2 {
     font-weight: bold;
   }
-  #li3 { /* bolder : 부모(ul)에게서 상속된 값(200)보다 굵은 굵기. 상대적이므로 200보단 굵지만 bold(700)보다 작을수있다. */
+  #li3 { /* bolder : 부모(ul)에게서 상속된 값(300)보다 굵은 굵기. 상대적이므로 300보단 굵지만 bold(700)보다 작을수있다. */
     font-weight: bolder;
   }
   </style>
@@ -75,7 +78,14 @@
   <style>
   span#font {
     /* font-style font-variant font-weight font-size/line-height font-family */
-    font: italic small-caps bold 24px/48px 'Noto Sans KR';
+    font: italic small-caps bold 60px/48px 'Noto Sans KR';
+  }
+  </style>
+  <P id="just">그냥 시험용텍스트 abcdefg ABCDEFG 123456</P>
+  <style>
+  #just {
+    font-size: 48px;
+    font-weight: bolder;
   }
   </style>
 </body>
