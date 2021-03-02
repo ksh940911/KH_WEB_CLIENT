@@ -19,7 +19,7 @@
     /* border-width: 1px; 
     border-style: solid;
     border-color: black; */
-    border : 5px solid black;
+    border : 5px dotted black; /* solid 대신 dashed | dotted 사용가능 */
     /* border-radius: 30px; */
     /* border-radius: 50% 40% 30% 20%; */ 
     /* border-radius: 50% 40% 30%; box_model과 같이 생략되면 맞은편 값을 가져와서 반영해줌*/
@@ -32,20 +32,19 @@
   <div class="box"></div>
   <style>
   .box {
-      width: 200px;
-      height: 200px;
-      background-color: lightseagreen;
-      border: 5px solid black;
-      border-radius: 10px;
-      margin: 10px auto;
-      /* 가로offset 세로offset 번짐 그림자크기 color */
-      /* box-shadow: 5px 5px 15px 5px gray; hover했을경우에만 그림자효과 적용하고 싶으면 따로 하나더 만들어줘야함. hover일경우 스타일과 그냥 .box일경우 스타일 */
+    width: 200px;
+    height: 200px;
+    background-color: lightseagreen;
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 10px auto;
+    /* 가로offset 세로offset 번짐 그림자크기 color */
+    /* box-shadow: 5px 5px 15px 5px gray; hover했을경우에만 그림자효과 적용하고 싶으면 따로 하나더 만들어줘야함 | .box:hover일경우 스타일 | .box일경우 스타일 | */
   }
   .box:hover {
-      /* 가로offset 세로offset 번짐 그림자크기 color */
-      box-shadow: 5px 5px 15px 5px gray;
+    /* 가로offset 세로offset 번짐 그림자크기 color */
+    box-shadow: 5px 5px 15px 5px gray;
   }
-  </style>
-  
+  </style>                    
 </body>
-</html>
+</html> 

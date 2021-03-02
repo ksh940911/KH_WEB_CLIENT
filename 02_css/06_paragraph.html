@@ -15,40 +15,26 @@
     <p>Maiores magnam, sed neque labore, dicta eligendi provident, soluta quasi nostrum consequatur veniam. Culpa quam aut dolor rem asperiores, magnam, dolorem ullam vitae itaque possimus minus magni vero reiciendis odio?</p>
     <p>Magnam nostrum necessitatibus quod hic cumque quae, libero voluptas illo officiis unde, assumenda explicabo adipisci qui vero corrupti odit vel fuga cum atque officia iure mollitia. Expedita adipisci velit officia.</p>
   </div>
-  <style>
-  .wrapper p::first-letter {
-    font-size : 2em;
-  }
-  /* .wrapper p::first-line {
-    text-decoration: underline;
-  } */
+  <style> 
+  .wrapper p::first-letter {font-size : 2em;} /* 가상선택자 '::first-letter' p태그 첫글자의 글짜크기를 두배로 해줘라! */
+  .wrapper p::first-line {text-decoration: underline;} /* 가상선택자 '::first-line' p태그 첫줄에 밑줄을쳐라! */
+  /* .wrapper p::before {content : "😊";} 가상선택자 '::before' p태그 앞부분에 content : emoji를 삽입해라! */
+  .wrapper p::after {content : "👀";} /* 가상선택자 '::after' p태그 뒷부분에 content : emoji를 삽입해라! */
 
-  /* .wrapper p::before {
-    content : "😊";
-  } */
-  /* .wrapper p::after {
-    content : "👀";
-  } */
-
-  /* 카운터 */
+  /* 카운터(counter) : 문단에 번호매기기! */
   /* 부모요소에서 선언 */
   .wrapper {
-    counter-reset : num;
+    counter-reset : num; /* counter 변수명으로 쓸 num 선언해주기 */
   }
   .wrapper p::before {
-    counter-increment : num;
-    content : counter(num)" ";
+    counter-increment : num; /* num이라는 변수를 가진 counter를 증가시켜주세요! */
+    content : counter(num)" "; /* " "는 p태그와 content사이의 공백을 만들어주기위해 넣음 없어도 잘돌아감. */
   }
 
-  ::selection {
+  ::selection { /* 가상선택자 '::selection' 드래그해서 블락잡을때 블락영역 background-color와 글자색 지정해라! */
     background-color: thistle;
     color: #fff;
   }
-
-
-
-
   </style>
-  
 </body>
 </html>

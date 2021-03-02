@@ -8,14 +8,17 @@
 </head>
 <body>
   <h1>정렬 align</h1>
+
   <!--
     가운데 정렬시
-    1. inline 요소 : 부모 block요소에 text-align속성을 지정
-    2. block 요소 : 스스로에게 margin속성을 이용해 지정
+    1. inline 요소 : 부모 block요소에 text-align속성을 통해 지정(cascade에 의해 자기도 정렬됨)
+    2-1. block 요소 : block은 한줄을 어차피 다 차지해서 가운데 정렬이 의미가 없지만 영역(width)이 있고 그 영역을 한줄안에서 가운데로 배치시키고 싶을경우, 스스로에게 margin속성을 이용해 지정
+    2-2. block 요소안의 내용 : 부모block요소(cascade에 의해 자기도 정렬됨)나 자기 block요소에 text-align속성을 통해 지정하면된다.
   -->
+
   <!-- div.wrapper>span -->
   <div class="wrapper">
-    <h3>허허허</h3>
+    <h3>허허허</h3><!-- block요소라 부모 block요소(div)가 아닌 스스로 margin속성을 통해 가운데정렬이 되야하는데 h1,h2...태그는 따로 margin없이 부모 block요소에서 text-allign속성으로 지정해줬으면 자기도 가운데 정렬이된다. -->
     <span>안녕하세요 :)</span>
   </div>
   <style>
@@ -23,25 +26,27 @@
     background-color: gold;
     width: 300px;
     height: 300px;
-    text-align: center;
-    /* 방향 top - right - bottom - left*/
-    /* top/bottom left/right */
-    margin: 10px auto; /* margin-left = margin-right */
-  }
+    text-align: center; /* left(좌측정렬) | right(우측정렬) | center(가운데정렬) */
 
+    /* margin : 현재요소와 다른요소와의 거리 */
+    /* margin : 10px(top) 10px(right) 10px(bottom) 10px(left) - 4개 다채워서 쓸경우 */
+    /* margin : 10px(top/bottom) 10px(left/right) - 2개 쓸경우 */
+    margin: 10px auto; /* margin : 10px(top/bottom) auto(left/right) : 알아서 자동으로 margin-left = margin-right, 좌우가 똑같게해라! */ 
+  }
   </style>
 
-  <h2>텍스트 정렬</h2>
-  <p id="t-align">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error laborum assumenda iste laboriosam? Illum eius ducimus officia qui, officiis sit, facere maiores aliquam enim incidunt accusantium natus error cumque debitis.</span><>Magni fugit veritatis obcaecati doloremque quaerat voluptates quidem quos vitae laborum dolorum, dolorem, atque temporibus iste eius facere! Maxime doloribus obcaecati aspernatur magnam accusantium ad vel quibusdam aut! Minus, rem!
-  </p>
+  <h2>텍스트 정렬</h2><!-- 12~17번째줄 주석중 2-2에 관한 예시 -->
+  <style>
+  h2 {
+    text-align: center;
+  }
+  </style>
+
+  <p id="t-align">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error laborum assumenda iste laboriosam? Illum eius ducimus officia qui, officiis sit, facere maiores aliquam enim incidunt accusantium natus error cumque debitis.</span><>Magni fugit veritatis obcaecati doloremque quaerat voluptates quidem quos vitae laborum dolorum, dolorem, atque temporibus iste eius facere! Maxime doloribus obcaecati aspernatur magnam accusantium ad vel quibusdam aut! Minus, rem!</p>
   <style>
   #t-align {
-    text-align: center;
+    text-align: center; 
   }
   </style>
-
-
-
 </body>
 </html>

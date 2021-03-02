@@ -10,14 +10,17 @@
     <h1>Box Model</h1>
     <div class="test">컨텐츠컨텐츠컨텐츠</div>
     <div class="test" id="m-collapse">컨텐츠컨텐츠컨텐츠</div>
+
     <!--
-        content : 시작태그와 종료태그사이에 작성한 내용. width는 content의 너비를 의미함. width속성값을 가짐.
+        content : 시작태그와 종료태그사이에 작성한 내용. width속성값을 가짐. width는 content의 너비를 의미함. 
         padding : 컨텐츠와 border사이의 여백.
         border : 테두리. 경계선, 너비를 가진다.
         margin : border와 다른 요소사이의 여백
     -->
+
     <style>
-    /* 마주하는 요소간의 margin값은 큰값으로 처리된다. */        
+    /* margin-collapse 마진 겹침현상 : 예를들어 위아래 요소가 겹치는 margin값이 있으면 서로 margin값을 유지하며 갖지않고 큰값의 margim기준으로 겹치게 갖는다. */        
+    /* 마주하는 요소간의 margin값은 큰값을 갖고있는 요소의 margin값으로 처리된다. */
     #m-collapse {
         margin-top: 50px;
     }
@@ -28,16 +31,17 @@
         border: 10px solid tomato;
         /* border-right : 10px solid tomato; */
         margin: 10px auto;
-        padding: 5px;
-        /* padding: 5px 10px; -> bottom값 left값을 생략하면 top값, right값을 가져와서 반영해줌(즉, 맞은편 값을 가져와서 반영한다)*/
-        /* padding: 5px 10px 15px; -> left값을 생략하면 right값을 가져와서 반영해줌*/
         /* margin : top bottom right left */
-
+        padding: 5px;
+        /* padding : top right bottom left */
         /* padding: 5px 10px 15px 20px; */
         /* padding-top: 5px;
-        padding-right: 10px;
-        padding-bottom: 15px;
-        padding-left: 20px; */
+           padding-right: 10px;
+           padding-bottom: 15px;
+           padding-left: 20px; */
+        
+        /* padding: 5px 10px 15px; -> left값을 생략하면 right값을 가져와서 반영해줌*/
+        /* padding: 5px 10px; -> bottom값, left값을 생략하면 top값, right값을 가져와서 반영해줌(즉, 맞은편 값을 가져와서 반영한다)*/
     }
     </style>
 </body>
