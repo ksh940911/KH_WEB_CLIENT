@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - casting</title>
+</head>
+<body>
+    <h1>Casting</h1>
+    <input type="button" value="실행" onclick="test1();">
+    <script>
+    function test1(){
+        console.log(3 + 7 + "7");
+        console.log(typeof(3 + 7 + "7"));
+
+        console.log(7 - "7"); // 7 - 7 = 0
+        console.log(7 * "7"); // 49
+        console.log(7 / "7"); // 1
+        console.log(7 % "4"); // 3 | 나머지값
+        console.log(7 % "a"); // NaN : Not a Number 숫자로 자동형변환이 불가한 우항
+        console.log(typeof(NaN)); // number(타입) cf)null - object(타입)
+
+    }
+    </script>
+    <h2>Number | parseInt | parseFloat</h2>
+    <input type="button" value="실행" onclick="test2();">
+    <script>
+    var test2 = function(){
+        var num = "1234.567원";
+        console.log(Number(num)); // 1234.567 정수/실수로 변환 변환불가한 문자가 있으면 NaN을 리턴
+        console.log(parseInt(num)); // 1234 정수변환. 문자가 있어도 좌측부터 최대한 변환
+        console.log(parseFloat(num)); // 1234.567 실수로 변환. 문자가 있어도 좌측부터 최대한 변환
+    };
+    </script>
+
+    <input type="number" id="num1" placeholder="숫자1">
+    <input type="number" id="num2" placeholder="숫자2">
+    <input type="button" value="합 계산" onclick="test3();">
+    <script>
+    /**
+     * #num1, #num2의 값을 더해서 출력하세요.
+     * 
+     * input태그의 value는 type속성과 관계없이 모두 string이다.
+     */     
+    var test3 = function(){
+        var sum = Number(num1.value) + Number(num2.value);
+        console.log(sum);
+    };
+    </script>
+
+
+</body>
+</html>

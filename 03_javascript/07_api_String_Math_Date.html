@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - String | Math | Date</title>
+</head>
+<body>
+    <h1>String</h1>
+    <input type="button" value="실행" onclick="test1();">
+    <input type="button" value="@실습문제" onclick="test2();">
+    <script>
+    /**
+     * String 내장객체 : 문자열 관련 메서드를 제공
+     */
+    var test1 = function(){
+        var str = "Samsung Apple Xiomi";
+        console.log(str.length); // length속성 : 19
+        console.log(str.toUpperCase()); // toUpperCase속성 : SAMSUNG APPLE XIOMI
+        console.log(str.toLowerCase()); // toLowerCase속성 : samsung apple xiomi
+        console.log(str.indexOf('ms')); // indexOf('')속성 : ''안의 값이 인덱스 몇번째에 위치하는가 | 2
+        console.log(str.lastIndexOf('i')); //lastIndexOf('')속성 : ''안의 값이 인덱스 뒤에서부터 몇번째에 위치하는가 | 18
+        console.log(str.charAt(0)); //charAt('')속성 : ''안의 인덱스값에 해당하는 자리의 값을 잘라서 보여줘라 | S
+        console.log(str[18]); //문자열 -> 문자배열취급 : 18번째 인덱스값에 해당하는 배열의 값을 보여줘라 | i
+
+        //문자열 일부를 리턴: 2번지 ms 잘라오기
+        //substring(start[, end]) end는 생략가능 생략하면 끝까지 가져옴('[]'기호는 생략가능하다는 뜻임)
+        console.log(str.substring(2,2)); //2번째 인덱스부터 4번째 인덱스 전까지 잘라서 보여줘라! | ms
+        console.log(str.substring(2)); //msung Apple Xiomi
+
+        //substr(start[, length])
+        console.log(str.substr(2, 2)); //2번째인덱스부터 2자리만큼 잘라서 보여줘라! | ms
+        console.log(str.substr(2)); //msung Apple Xiomi
+
+        var arr = str.split(" ");
+        console.log(arr); //()괄호안의 값(공백)을 기준으로 split 분리시켜라! | ["Samsung", "Apple", "Xiomi"]
+    };
+
+    /**
+     * 두개의 인자(문자열과 문자)를 입력받고, 
+     * 문자열에서 문자가 몇번 출현하는지 리턴하는 함수를 생성
+     * 
+     * countChar("hahaha", "a") => 3
+     * countChar("abccba", "c") => 2
+     * countChar("abcde", "x") => 0
+     */ 
+    var test2 = function(){
+        var result = countChar("hahaha", "a");
+        console.log(result);
+        result = countChar("abccba", "c");
+        console.log(result);
+        result = countChar("abcde", "x");
+        console.log(result);
+    };
+
+    var countChar = function(str, ch){
+        var cnt = 0;
+        for(var i = 0; i  < str.length; i++){
+            if(str[i] == ch)
+            cnt++;
+        }
+        return cnt;
+    };
+    </script>
+
+    <h1>Math</h1>
+    <input type="button" value="실행" onclick="test3();">
+    <script>
+    var test3 = function(){
+        var num = 123.456;
+        console.log(Math.round(num)); //아무것도 기준이 없을때는 소수점기준으로 반올림 | 123
+        console.log(Math.round(num * 100) / 100); // 12345.6을 소수점기준으로 반올림하고나서 12346된상태에서 / 100 | 123.46
+        console.log(Math.ceil(num)); // 올림 | 124
+        console.log(Math.ceil(num * 10) / 10); // 소수점기준으로 올림 | 123.5
+        console.log(Math.floor(num)); // 버림 | 123
+        console.log(Math.floor(num * 10) / 10); // 버림 | 123.4
+
+        console.log(Math.random()); // 0.0(포함) ~ 1.0(미포함) 사이의 실수
+        // console.log(Math.ceil(Math.random()*10)); // 1 ~ 10사이의 난수 구하기 -> 잘나오는것처럼 보였지만 0.0일 경우 올림을 해도 0이기때문에 결과값이 0 ~ 10의 범위를 가져서 틀린 방법임.
+        console.log(Math.trunc(Math.random() * 10 + 1)); // 1 ~ 10사이의 난수 <난수 * 경우의수 + 최소값> : 0 ~ 9범위를 가짐 + 1(최소값)을 함으로써 1~10의 범위를 가짐
+        console.log(Math.trunc(Math.random() * 100 + 1)); // 1 ~ 100사이의 난수 <난수 * 경우의수 + 최소값> : 0 ~ 99범위를 가짐 + 1(최소값)을 함으로써 1~100의 범위를 가짐
+    };
+    </script>
+
+    <input type="button" value="@실습문제" onclick="test4();">
+    <ul id="test-rnd">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+    /**
+     * #test-rnd 하위의 li태그에 1 ~ 100사이의 난수를 대입하세요.
+     * 단, 짝수라면 글자색을 예쁘게(?) 할것.
+     */ 
+    var test4 = function(){
+        var lis = document.querySelectorAll("#test-rnd > li");
+
+        for(var i = 0; i < lis.length; i++){
+            var n = Math.floor(Math.random() * 100) +1;
+            lis[i].innerHTML = n;
+            //컬러 초기화(안해주면 계속돌리다보면 모든 li가 색물듦.)
+            lis[i].style.color = "#000";
+
+            //짝수인 경우(방법1)
+            if(n % 2 ==0)
+                lis[i].style.color = "springgreen";
+            //짝수인 경우(방법2)
+            // (n % 2 == 0) && (lis[i].style.color = "springgreen");
+        }
+    };
+    </script>
+
+    <h1>Date</h1>
+    <input type="button" value="실행" onclick="test5();">
+    <script>
+    /**
+     * Date는 객체생성시점의 날짜/시각정보를 가진 객체
+     */ 
+    var test5 = function(){
+
+        var now = new Date(); // new 연산자 사용가능
+        console.log(now); // 지금시간 | Thu Mar 04 2021 19:45:03 GMT+0900 (대한민국 표준시)
+
+        var time1 = new Date(2000, 0, 1); // 월은 0-based 인덱스 | Sat Jan 01 2000 00:00:00 GMT+0900 (대한민국 표준시)
+        console.log(time1);
+        var time2 = new Date(2000, 0, 1, 15, 30, 50); // 특정시간 | Sat Jan 01 2000 15:30:50 GMT+0900 (대한민국 표준시)
+        console.log(time2);
+        var time3 = new Date("1999/03/01 15:34:20"); //날짜형식의 문자열도 처리가능 | Mon Mar 01 1999 15:34:20 GMT+0900
+        console.log(time3);
+
+        displayDateTime(now); // 1999/03/01(화) 15:34:20 형식으로 출력할것.
+    };
+
+    var displayDateTime = function(dt){
+        var yyyy = dt.getFullYear();
+        var mm = get2digit(dt.getMonth() + 1);
+        var dd = get2digit(dt.getDate());
+        var day = dt.getDay();  //일(0) ~ 토(6)
+        var dayArr = ['일', '월', '화', '수', '목', '금', '토'];
+        var hh = get2digit(dt.getHours());
+        var mi = get2digit(dt.getMinutes());
+        var ss = get2digit(dt.getSeconds());
+        alert(yyyy + "/" + mm + "/" + dd 
+            + "(" + dayArr[day] + ") " 
+            + hh + ":" + mi + ":" + ss);
+    };
+
+    var get2digit = function(n){
+        // return n.toString().padStart(2,'0');
+        return n < 10 ? '0' + n : n;
+    };
+    </script>
+
+</body>
+</html>

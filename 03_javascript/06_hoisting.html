@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - hoisting</title>
+</head>
+<body>
+    <h1>Hoisting</h1>
+    <script>
+    // var a; // var키워드로 선언된 변수는 hoisting 된다. 그래서 12번째줄 없이 14번째줄에 var a = "안녕";이라고 써도 hoisting되어 12번째줄처럼 작동시켜서 오류가 안남.
+    // function foo; //함수선언식 hoisting 된다. 21번째줄 13번째줄로 hoisging시킴. script뒤로
+    // var bar; // var키워드로 선언된 변수는 hoisting 된다.
+    console.log(a);  // undefined
+    var a = "안녕";
+    
+    foo();
+    /**
+     * 함수 선언식은 hoisting된다. 함수선언식으로 썼으면 미리호출해도 함수 표현식과 달리 잘 작동한다.
+     */
+    function foo(){
+        console.log("foo");
+    }
+
+    bar(); // Uncaught TypeError: bar is not a function | 실행오류뜸 지금 bar가 function()이 들어가있는게 아니고 hoisting만 되서 undefined인데 함수호출하라고 시키니까 실행못함. 오류가나면 그 하위의 코드는 실행불가!! 35번째줄도 연달아 실행못함.
+    /**
+     * 함수 표현식
+     * bar변수에 익명함수를 대입
+     */
+    var bar = function(){
+        console.log("bar");
+    }
+
+    bar(); // 뒤에서 호출하는건 아무문제가 안됨.
+    </script>
+
+</body>
+</html>
