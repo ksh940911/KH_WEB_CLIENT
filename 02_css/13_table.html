@@ -48,19 +48,21 @@
         width: 500px;
         height: 500px;
 
-        white-space: nowrap;
-        /* 테이블너비를 고정 */
+        /* 줄바꿈을 하지않고 한줄로 볼수있게 컨텐츠의 길이에 맞춰서 td의 너비를 늘려줌. */
+        /* white-space: nowrap; */
+
+        /* table의 너비는 500으로 고정되나 그안에서 각td의 컨텐츠 길이가달라 td끼리 너비가 조정되는데 컨텐츠상관없이 td의 너비를 균등하게 고정시켜준다. */
         /* table-layout: fixed; */
     }
     th, td {
         border: 1px solid black;
         padding: 10px;
         text-align: center;
-        vertical-align: top; /* top | middle | bottom 테이블 안에서만 통하는 속성임 */
+        vertical-align: top; /* top | middle | bottom 테이블 안에서만 통하는 속성임 : 내용을 세로방향으로 위쪽 중간 아래쪽으로 위치시킴 */
     }
-    </style>
+    </style><br><br><br>
 
-    <h2>일반요소의 vertical-align</h2>
+    <h2>일반요소의 vertical-align</h2><!-- 61번째줄에서 테이블 안에서만 통하는 속성이라고했는데 굳이 다른요소를 이 속성으로 정렬시키고싶다고하면 이렇게 쓰면됨 -->
     <div class="test">
         <span>안녕</span>
     </div>
@@ -71,11 +73,11 @@
         background-color: steelblue;
         color: black;
         margin: 0 auto;
-        display: table; /* 부모 */
+        display: table; /* 부모 : 테이블 안에서만 통하는 속성이라 테이블처럼 봐라! 하고 컴퓨터한테 시킴 */
         text-align: center;
     }
     .test span {
-        display: table-cell; /* 자식 요소 */
+        display: table-cell; /* 자식 : 테이블에 속한 셀(th,td)처럼 봐라! 하고 컴퓨터한테 시킴 */
         vertical-align: middle;
     }
     </style>

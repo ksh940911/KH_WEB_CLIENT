@@ -7,47 +7,46 @@
     <title>css - list</title>
 </head>
 <body>
-    <h1>목록</h1>
-    <nav><!-- nav : 메뉴성격을 가지고있다. 이사이트의 어떤 공간으로 이동하는 링크를 제공해준다. 이경우엔 nav태그로 꼭 감싸주기. 태그의 의미와 내용이 같게 작성해주어야한다 아주중요!! -->
-      <ul id="menu">
-        <li><a href="">html5</a></li>
-        <li><a href="">css3</a></li>
-        <li><a href="">javascript6</a></li><!-- cf) javascript2015 = javascript6 -->
-        <li><a href="">jquery</a></li>
-        <li><a href="">bootstrap</a></li>
-        <li><a href="">foundation</a></li>
-      </ul>
-    </nav>
-      
-    <style>
-    nav {
-        height: 25px;
-        background-color: greenyellow;
-        padding: 5px 0;
-    }
-
-    ul#menu {
-      list-style-type : none; /* ul이 갖고있는 목록기호 없애버리기 */
-      padding-left : 0px; /* ul이 갖고있는 들여쓰기공간 없애버리기 */
-      width: 450px;
-      margin: 0 auto;
-    }
-
-    ul#menu li {
-      float: left;  /*붕띄워서 ul왼쪽에 착 붙여버리기!*/
-      margin-right : 15px; /* 착 붙인거 요소간 간격주기*/
-    }
-
-    ul#menu li:hover {
-        border-bottom: 4px solid lightslategray; /* 외곽선 아래쪽만 만들어서 밑줄효과만들기 */
-        text-shadow: 3px 3px 7px royalblue;
-    }
+  <h1>목록</h1>
+  <nav><!-- nav : 메뉴성격을 가지고있다 or 이사이트의 어떤 공간으로 이동하는 링크를 제공해준다 -> 이경우엔 nav태그로 꼭 감싸주기. 태그의 의미와 내용이 같게 작성해주어야한다 아주중요!! -->
+    <ul id="menu">
+      <li><a href="">html5</a></li>
+      <li><a href="">css3</a></li>
+      <li><a href="">javascript6</a></li><!-- cf) javascript2015 = javascript6 -->
+      <li><a href="">jquery</a></li>
+      <li><a href="">bootstrap</a></li>
+      <li><a href="">foundation</a></li>
+    </ul>
+  </nav>
     
-    ul#menu a {
-      text-decoration: none; /*a태그가 가지고있는 밑줄없애버리기*/
-    }
-  
-    </style>
+  <style>
+  nav {
+      height: 25px;
+      background-color: greenyellow;
+      padding: 5px 0;
+  }
 
+  ul#menu {
+    list-style-type : none; /* ul이 갖고있는 목록기호 없애버리기 */
+    padding-left : 0px; /* ul이 갖고있는 들여쓰기공간 없애버리기 */
+    width: 450px;
+    margin: 0 auto;
+  }
+
+  ul#menu li {
+    float: left;  /*붕띄워서 ul왼쪽에 착 붙여버리기!*/
+    margin-right : 15px; /* 착 붙인거 요소간 간격주기*/
+  }
+
+  ul#menu li:hover {
+      border-bottom: 4px solid lightslategray; /* 외곽선 아래쪽만 만들어서 밑줄효과만들기 */
+      text-shadow: 3px 3px 7px royalblue;
+  }
+  
+  ul#menu a {
+    text-decoration: none; /*a태그가 가지고있는 밑줄없애버리기*/
+  }
+
+  </style>
 </body>
 </html>

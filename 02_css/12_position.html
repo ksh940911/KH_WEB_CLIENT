@@ -9,14 +9,14 @@
 <body>
     <h1>position</h1>
     <!-- 
-        static(기본값) : 문서내 작성된 순서대로 배치. offset(x, y로부터 얼마나 떨어져있는가 와같은)값 무시.
+        static(기본값) : 문서내 작성된 순서대로 배치. offset(x, y로부터 얼마나 떨어져있는가와같은)값 무시.
         relative : 문서내 작성된 순서대로 배치. offset값 적용.
         absolute : 가장 가까운 'position: relative' 부모요소 기준으로 offset값 적용.
-        fixed : viewport기준으로 offset값 적용.
+        fixed : browser viewport(화면)기준으로 offset값 적용.
     -->
     <h2>static</h2>
     <!-- .outer>.first+.second+.third -->
-    <!-- div.outer>.first+.second+.third --><!-- 기본태그가 div라서 div.outer가 아닌 .outer만해줘도 div가 나옴 -->   
+    <!-- div.outer>.first+.second+.third --><!-- div는 emmet에서 기본요소(태그)라서 div.outer가 아닌 .outer만해줘도 div가 나옴 -->   
     <div class="outer">
         <div class="first"></div>
         <div class="second"></div>
@@ -36,17 +36,17 @@
         width: 200px;
         height: 200px;
         background-color: violet;
-        top: 50px;
-        left: 50px;
+        top: 50px; /* position: static이라서 offset값 무시됨 */
+        left: 50px; /* position: static이라서 offset값 무시됨 */
     }
     .third {
         width: 100px;
         height: 100px;
         background-color: magenta;
-        top: 100px;
-        left: 100px;
+        top: 100px; /* position: static이라서 offset값 무시됨 */
+        left: 100px; /* position: static이라서 offset값 무시됨 */
     }
-    </style>
+    </style><br><br><br>
 
     <h2>relative</h2>
     <div class="outer">
@@ -56,32 +56,33 @@
     </div>
     <style>
     .position-relative {
-        position: relative;
+        position: relative; /* offset값이 있는 second와 third에 class적용시켜서 어떻게 보이나 보기! 고정된 위치(작성된 순서)에서 위치를 옮기고 싶을때 사용. */
     }
-    </style><br><br><br><br>
+    </style><br><br><br><br><br>
 
     <h2>absolute</h2>
-    <div class="outer position-relative">
+    <div class="outer position-relative"><!-- 가장 가까운 부모요소중에 relative를 못찾아서 body기준으로 처리되버림. 부모요소에 position: relative 적용되도록 class추가. -->
         <div class="first"></div>
         <div class="second position-absolute"></div>
         <div class="third position-absolute"></div>
     </div>
     <style>
     .position-absolute {
-        position: absolute;
+        position: absolute; /* offset값이 있는 second와 third에 class적용시켜서 어떻게 보이나 보기! relative를 가진 부모요소를 만들어 원하는 곳에 위치시키고싶을때 사용. */
     }
-    </style>
+    </style><br><br><br>
+
     <h2>fixed</h2>
     <div class="third position-fixed"></div>
     <style>
     .position-fixed {
-        position: fixed;
+        position: fixed; /* browser의 viewport(화면)기준으로 왼쪽100px 위쪽100px 떨어진 곳에 고정됨. 브라우져의 어떤곳에 위치를 고정시키고싶을때 사용. */
     }
-    </style>
+    </style><br><br>
 
     <h2>z-index</h2>
     <!-- z축기준으로 요소를 배치. 'position:static'에서는 사용불가 -->
-    <!-- z-index가 명시되지 않으면, 문서상 나중에 작성된 것이 z-index가 더 높다. -->
+    <!-- z-index가 명시되지 않으면, 문서상 나중에 작성된 것이 z-index가 더 높다. z-index의 숫자가 클수록 앞으로 튀어나옴 -->
     <!-- div.wrapper>.box${테스트$}*3 -->
     <div class="wrapper position-relative">
         <div class="box box1 position-absolute">테스트1</div>
@@ -110,6 +111,6 @@
         left: 40px;
         z-index: 1;
     }
-    </style>
+    </style><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <title>css - animation</title>
 </head>
 <body>
-  <h1>animation</h1>
+  <h1>animation</h1><!-- 여러가지 상태(a->b->c->d)로 스르륵 바뀌는 것 -->
   <div class="box"></div>
   <hr>
   <div class="wrapper">
@@ -28,55 +28,61 @@
     background-color: slateblue;
     border: 3px solid #000;
     margin: 0 auto;
+    opacity: 0.1;
 
     animation-name : my-first-animation;
     animation-duration : 5s;
+    animation-delay: 3s;
     animation-iteration-count: infinite;
-    animation-direction: alternate;
-    animation-timing-function: ease-out;
+    animation-direction: normal;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
 
   }
   /* animation 속성 */
   /* 
     @keyframes 이름 : 각각의 상태를 작성 (0% ~ 100%)
-    animation-name : @keyframes의 이름을 지정
-    animation-delay : 지연시간
-    animation-direction : normal | reverse | alternate | alternate-reverse
-    animation-iteration-count : 반복횟수 | infinite
-    animation-duration : 실행시간
-    animation-timing-function : 속도곡선
-    animation-fillmode : 시작전후 상태 forwards | backwards | both
+    animation-name : 만들어놓은 @keyframes중 갖다쓸것 이름지정
+    animation-delay : 지연시간후 animation 실행
+    animation-direction : normal(기본값 0%->100%) | reverse(100%->0%) | alternate(0%->100%->0%->100%...) | alternate-reverse(100%->0%->100%->0%...)
+    animation-iteration-count : 반복횟수(숫자) | infinite
+    animation-duration : 실행시간(몇초에걸쳐실행시킬지 지정)
+    animation-timing-function : 속도곡선(몇초에걸쳐실행할때 완급조절시키기 : 실행시간안에서 빨라졌다느려졌다)
+    animation-fillmode : 애니메이션 효과가 재생 중이 아닐 때 요소의 스타일을 설정함. none(애니메이션 재생 중이 아닐 때 기본으로 설정한스타일을 보여줌. 기본값) | forwards(애니메이션끝나면 마지막 프레임에 설정한 스타일 유지) | backwards(첫 번째 키 프레임에 의해 설정된 스타일 값을 가져오고(애니메이션 방향에 따라 다름) 애니메이션 지연 시간 동안 유지) | both(forwards와 backwards를 모두 유지)
     
   */
 
   @keyframes my-first-animation {
+    0% {
+      transform : translate(0, 0);
+      width: 100px;
+      height: 100px;
+      opacity: 1;
+    }
     25% {
       transform : translate(100px, 0);
+      width: 300px;
+      height: 300px;
     }
     50% {
       transform : translate(100px, 100px);
+      width: 200px;
+      height: 200px;
     }
     75% {
       transform : translate(0, 100px);
+      width: 100px;
+      height: 100px;
     }
     100% {
       transform : translate(0, 0);
       width: 300px;
       height: 300px;
+      opacity: 0;
     }
   }
-
-
   </style>
 
-
-
-
-
-
-
-
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br>
 </body>
 </html>
