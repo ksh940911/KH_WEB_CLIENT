@@ -126,6 +126,7 @@
     <input type="button" value="slice" onclick="test11();">
     <input type="button" value="splice" onclick="test12();">
     <input type="button" value="@실습문제" onclick="test13();">
+    <input type="button" value="forEach" onclick="test14();">
     <ul id="hobby-list"></ul>
     <script>
     var test4 = function(){
@@ -299,13 +300,78 @@
      * 예) 농구,수영,캠핑,낚시
      * ,구분자로 잘라서 배열로 담은후 사전순 정렬하고, ul#hobby-list의 자식li태그로 추가하세요.
      */ 
-    var test13 = function(){
-        var hobby = prompt("취미를 입력하세요(,로구분):");
-        var arr = [];
-        arr = hobby.split(",");
-        console.log(arr);
-        arr.sort();
-        var arrHobby = document.querySelector("#hobby-list");
+     var test13 = function(){
+		var hobbies = prompt("취미를 입력하세요. 예)농구,수영,캠핑,낚시");
+
+        // null, "" 일때는 조기리턴처리
+		if(!hobbies) {
+		  alert("입력값이 유효하지 않습니다.");
+		  return;
+		}	  
+
+		var arr = hobbies.split(",");
+		arr.sort();
+		console.log(arr);
+
+		var result = document.querySelector("ul#hobby-list");
+
+        //배열 요소마다 콜백함수를 실행
+        //농구,수영,캠프,낚시
+        //f("농구", 0)
+        //f("수영", 1)
+        //f("캠핑", 2)
+        //f("낚시", 3)
+		arr.forEach(function(food, idx){
+		  result.innerHTML += "<li>" + food + "</li>";		
+		});	  
+    };
+
+    /**
+     * arr.forEach(callbackFunction(element, index){
+     *    //요소마다 실행구문
+     * })
+     * 
+     * 유사배열도 사용가능.
+     * 
+     */ 
+    var test14 = function(){
+        var arr = [1, 2, 3, 4, 5];
+        var sum = 0;
+        arr.forEach(function(elem, i){
+            console.log(i, elem);
+            sum += elem;
+        });
+        // alert(sum);
+
+        var btnValues = [];
+        document.querySelectorAll("input[type=button]").forEach(function(elem,i){
+            console.log(i, elem);
+            btnValues.push(elem.value);
+        });
+        console.log(btnValues);
+    };
+    </script>
+
+    <hr>
+    <ul id="drink">
+        <li>coke</li>
+        <li>juice</li>
+        <li>coffee</li>
+        <li>beer</li>
+        <li>wine</li>
+    </ul>
+    <!-- input:b[onclick] -->
+    <input type="button" value="@실습문제#drink" onclick="test15();">
+    <script>
+    /**
+     * 배열 drink에 #drink태그의 자식li태그 텍스트를 추가할 것.
+     */
+    var test15 = function(){
+        var drink = [];
+        document.querySelectorAll("#drink > li").forEach(function(elem, i){
+            drinks.push(elem.innerText);
+        });
+        console.log(drink);
     };
     </script>
 </body>

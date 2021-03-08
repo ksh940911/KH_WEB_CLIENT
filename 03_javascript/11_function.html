@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js - function</title>
+</head>
+<body>
+    <h1>Function</h1>
+    <h2>함수 작성</h2>
+    <script>
+    /**
+     * 1. 함수선언식
+     */ 
+    function foo(){
+
+    };
+
+    /**
+     * 2. 함수표현식
+     */ 
+    var bar = function(){
+
+    };
+    bar();
+    // far();// Uncaught ReferenceError: far is not defined
+
+    /**
+     * 3. 즉시 실행 함수 Immediately Invoked Function Expression IIFE
+     */ 
+    (function(){
+        console.log("hello iife!")
+    })(); /* 방법1 */
+
+    (function(){
+        console.log("bye life!");
+    }()); /* 방법2 */
+
+    (function(name){
+        console.log("안녕~ " + name);
+    })('철수'); 
+    </script>
+
+    <h2>매개변수 | 매개인자</h2>
+    <input type="button" value="실행" onclick="test1(1, 2, 3); test1('안', '녕'); test1(true, false);">
+    <input type="button" value="arguments" onclick="test2();">
+    <input type="button" value="999" onclick="(soo())(999);">
+    <script>
+    /**
+     * 매개변수(parameter) : 값이 전달된 공간 | 함수선언부의 매개인자가 담길 공간(변수)
+     * 매개인자(argument) : 전달되는 값 | 함수호출부에서 전달될 값
+     * 
+     * 매개변수, 매개인자의 개수가 달라도 문제되지 않는다. 더 많아도 첫번째값(1, '안', true)만 들어갈뿐 문제되지 않는다.
+     */ 
+    function test1(x){
+        console.log("x = " + x);
+
+        //매개인자 유사배열(arguments) 참조
+        console.log(arguments);
+        for(var i = 0; i < arguments.length; i++){
+            console.log(arguments[i])
+        };
+    };
+
+    /**
+     * 매개인자의 합을 출력하는 가산기함수 add를 작성
+     */ 
+    function test2(){
+        add(1, 2, 3, 4, 5, 6, 7, 8, 9, 10); // 55
+        add(12.34, 45.67); // 58.010000000000005
+        add('a', 'b', 'c', 'd'); // "abcd"
+    }
+
+    function add(){
+        var sum = isNaN(arguments[0]) ? "" : 0;
+        for(var i = 0; i < arguments.length; i++){
+            sum += arguments[i];
+        }
+        console.log(sum);
+    };
+    </script>
+
+    <h2>함수 특징</h2>
+    <input type="button" value="return value" onclick="test3();">
+    <input type="button" value="중첩 함수" onclick="test4(10, 5);">
+    <script>
+
+    /**
+     * 함수의 return구문이 없다면 undefined를 리턴.
+     */ 
+    function test3(){
+        var k = koo();
+        console.log(k); // undefined
+    };
+    function koo(){
+        // return 100;
+    }
+
+    /**
+     * a^2 + b^2 = c^2
+    *  밑변  높이  빗변
+     */ 
+    function test4(a, b){
+        // 표현식.ver : var power = function(n){ 
+        function power(n){ // power 함수는 외부에서는 사용할수 없음. // 선언식.ver
+            return n ** 2;
+        }
+
+        //제곱근 구하기
+        c = Math.sqrt(power(a) + power(b));
+        console.log(c); // 11.180339887498949
+    }
+    </script>
+
+    <h2>함수 고급</h2>
+    <input type="button" value="매개인자" onclick="test5();">
+    <input type="button" value="리턴값" onclick="test6();">
+    <script>
+
+    /**
+     * 자바스크립트에서 함수는 값으로 취급된다.
+     * 마치 literal처럼 변수에 대입(함수표현식)할수 있고, 
+     * 함수의 인자로 전달되거나(callback함수), 
+     * 리턴값으로 사용할 수 있다.
+     */ 
+    // function test5(){
+    //     var f = function(n){
+    //         console.log(n + ": hello, javascript!");
+    //     };
+    //     // f();
+    //     exec(f);
+    // }
+    /**
+     * 1: hello, javascript!
+     * 2: hello, javascript!
+     * 3: hello, javascript!
+     * 4: hello, javascript!
+     * 5: hello, javascript!
+     * ...
+     * 10: hello, javascript!
+     */ 
+    function exec(a){
+        console.log(a);
+        console.log(typeof a);
+        for(var i = 0; i < 10; i++){
+            a(i + 1);
+        }
+    }
+    
+    function test5(){
+        // 방법1
+        var f = function(n){
+            console.log(n + ": hello, " + names[n-1] + "!");
+        };
+        // f();
+        exec(f);
+
+        // 방법2
+        // exec(function(n){
+        //     console.log(n + ": hello, " + names[n - 1] + "!");
+        // });
+    }
+    var names = [
+        'html', 'css', 'js', 'jquery', 'java', 
+        'oracle', 'mybatis', 'maven', 'lombok', 'spring'
+      ];
+    /**
+     * 1: hello, html!
+     * 2: hello, css!
+     * 3: hello, js!
+     * 4: hello, jquery!
+     * 5: hello, java!
+     * ...
+     * 10: hello, spring!
+     */ 
+    function exec(a){
+        // console.log(a);
+        // console.log(typeof a);
+        for(var i = 0; i < 10; i++){
+            a(i + 1);
+        }
+    }
+
+    function test6(){
+        // var f = makeFunction();
+        // console.log(f, typeof f);
+        // f('js'); // hello js~~
+
+        // (makeFunction())('js');
+        // (makeFunction()('js'));
+
+        var sayHello = makeFunction('say');
+        var sayGoodbye = makeFunction('goodbye');
+
+        sayHello('js');
+        sayGoodbye('js');
+    }
+
+    function makeFunction(say){
+        return function(name){
+            // console.log('hello js~~');
+            // console.log('hello ' + name + '~');
+            console.log(say + ' ' + name + '~');
+        };
+    }
+
+    function soo(){
+        return function(n){
+            alert(n);
+        }
+    }
+    </script>
+</body>
+</html>
