@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hello - js</title>
-  <script src="js/sample.js"></script>
+  <script src="js/sample.js"></script><!-- 외부 script에 작성해놓고 src 가져오기 -->
   <script>
     //내부 script태그 best position 1 : <head>태그 내
     /* */
@@ -23,11 +23,11 @@
   <input type="button" value="실행3" onclick="bar();">
 
   <script>
-  //내부 script태그 best position2 : <body>태그 내
+  //내부 script태그 best position 2 : <body>태그 종료직전
   //alert('html태그를 모두 해석하고, 그 다음에 나를 실행한다.'); html태그를 모두 처리한 이후에 alert가 실행됨.
 
   /**
-   * 함수 선언
+   * 내부 script태그에 함수 선언후 이벤트 속성(onclick)으로 함수 호출해서 사용!
    */
   function foo(){
     alert('foo를 호출!!!');

@@ -21,23 +21,27 @@
     <input type="button" value="class name" onclick="test3();">
     <script>
     function test1(){
-        var li = document.getElementById("myli1");
-        //"myli1"에서 "myli11111"로 바꿈 null나오는걸 보기위해!
-        //존재하지 않는 객체 null이라고 나옴.(참고로 null의 타입은 object임.)
-        console.log(li);  //태그객체
-        //객체구조로 열람
-        console.dir(li);
+        var li = document.getElementById("myli1"); // 딱 하나의 요소, id에 해당하는 요소를 가져올수 있다.
+        //"myli1"에서 "myli11111"로 바꿈 null 나오는 걸 보기위해!
+        // 밑에 console.log(li); & console.dir(li); 가 존재하지 않는 객체 null이라고 나옴. undefined하고 다름. (참고로 null의 타입은 object임.)
+
+        console.log(li); // 태그객체 | <li id="myli1" class="group" style="color: rgb(255, 255, 255); background-color: magenta;">요소1</li>
+        console.log(typeof(li)); // object
+
+        //dir : 객체구조로 열람하는 명령어
+        console.dir(li); // li#myli1.group
+
         //스타일 속성 변경
-        li.style.color = 'red';
-        li.style.backgroundColor = "magenta";
+        li.style.color = '#fff'; // 객체이기때문에 .찍어서 속성 접근가능. li객체밑에 style속성 겸 객체 밑에 color속성 변경!
+        li.style.backgroundColor = "magenta"; // li객체밑에 style속성 겸 객체 밑에 backgroundColor속성 변경! css에서는 background-color로 하이푼이있는 형식이었는데 DOM에서는 camel casing 형식으로 저장해놔서 js에서 스타일 변경할때 이름 구분해서 잘적기!
     }
 
     /**
-     * getElementsByTagName는 복수개의 요소를 가진 배열객체(짜가(가짜라는뜻))를 리턴한다.
+     * getElementsByTagName는 복수개의 요소를 가진 배열객체(가짜 : 유사배열)를 리턴한다.
      */ 
     function test2() {
-        var liArr = document.getElementsByTagName("li");//test1()처럼 getElement가 아니고 getElements임.
-        // console.log(liArr);
+        var liArr = document.getElementsByTagName("li"); // test1()처럼 getElement가 아니고 getElements임!
+        // console.log(liArr); // HTMLCollection(5) [li#myli1.group, li#myli2, li#myli3.group, li#myli4, li#myli5.group, myli1: li#myli1.group, myli2: li#myli2, myli3: li#myli3.group, myli4: li#myli4, myli5: li#myli5.group]
         // console.log(liArr[0]);
         // console.log(liArr[1]);
         // console.log(liArr[2]);
@@ -47,24 +51,25 @@
         for(var i = 0; i < liArr.length; i++){
             console.log(liArr[i]);
             liArr[i].style.color = "rgb(130, 220, " + b + ")";
-            b += 50;
+            b += 51;
         }
     }
 
     /**
-    * document 객체 : 작성한 html5의 태그를 파싱해서, 변환된 js object를 가지고 있는 객체.
+    * document 객체 : 작성한 html5의 태그를 파싱(쪼갠다는것 : 여기부터 p태그 시작 p태그 끝, 여기부터 h2태그 시작, h2 태그 끝 이런식으로 잘라낸다는 것.)해서 변환해둔 뒤, 변환된 그 객체(js(자바스크립트) object)를 가지고 있는 객체.
     * DOM Document Object Model  
     */
 
     /**
-     * document.getElementsByClassName("클래스명")
+     * document.getElementsByClassName("클래스명") : 복수개의 요소를 가진 배열객체(가짜 : 유사배열)를 리턴
      */
     function test3(){
         var groups = document.getElementsByClassName("group");
-        console.log(groups);
+        console.log(groups); // HTMLCollection(3) [li#myli1.group, li#myli3.group, li#myli5.group, myli1: li#myli1.group, myli3: li#myli3.group, myli5: li#myli5.group]
 
         for(var i = 0; i < groups.length; i++){
             var li = groups[i];
+            // console.log(li);
             li.style.color = "springgreen";
         }
     }
@@ -72,7 +77,7 @@
 
     <fieldset style="margin-top: 30px;">
         <legend>취미</legend>
-        <!-- (input:checkbox[name =hobby][value]#hobby$+label[for=hobby$])*3 -->
+        <!-- (input:checkbox[name=hobby][value]#hobby$+label[for=hobby$])*3 -->
         <input type="checkbox" name="hobby" id="hobby1" value="음악감상"><label for="hobby1">음악감상</label>
         <input type="checkbox" name="hobby" id="hobby2" value="영화시청"><label for="hobby2">영화시청</label>
         <input type="checkbox" name="hobby" id="hobby3" value="게임"><label for="hobby3">게임</label>
@@ -86,9 +91,9 @@
 
         for(var i = 0; i < hobbies.length; i++){
             var hobby = hobbies[i];
-            //체크여부
-            if(hobby.checked){
-                console.log(hobby.value);//input태그의 value속성값 
+            //체크여부 true, false를 리턴
+            if(hobby.checked){ // checked : checkbox가 체크됬는지 알아보는 속성
+                console.log(hobby.value); // input태그의 value속성값 가져옴
             }
         }
     }
@@ -107,32 +112,39 @@
      * - name값으로 접근
      */ 
     function test5(){
-        //   var userEmail = document.getElementById("userEmail");
-        //alert(userEmail.value);
+        // 아이디로 접근
+        // var userEmail = document.getElementById("userEmail");
+        // alert(userEmail.value);
+
+        // 태그명으로 접근
         // var inputs = document.getElementsByTagName("input");
         // console.log(inputs);
         // alert(inputs[7].value);
+
+        // name으로 접근
         var userEmails = document.getElementsByName("userEmail");
         console.log(userEmails);
-        alert(userEmails[0].value); // getter
+        alert(userEmails[0].value); // getter의 역할
 
         //속성은 getter/setter처리 가능
-        userEmails[0].value = ''; // 초기화 setter
+        // userEmails[0].value = 'ㅋㅋㅋㅋㅋㅋ'; // setter의 역할
+        userEmails[0].value = ''; // 초기화. setter의 역할
     }
     </script>
 
     <fieldset>
         <legend>수량</legend>
-        <input type="range" name="amount" id="amount" min="1" max="100" oninput="test6();"/>
-        <span id="result"></span>
+        <input type="range" name="amount" id="amount" min="1" max="100" oninput="test6();"/> <!-- oninput : 사용자 입력값이 변경될 때마다 test6()을 호출해라! -->
+        <span id="result">시작태그/종료태그사이 내용</span><!-- 시작태그/종료태그사이 내용으로 추가 : innerHTML -->
     </fieldset>
     <script>
     function test6() {
         // var amount = document.getElementById("amount");
         // var result = document.getElementById("result");
+        // console.log(amount.value);
 
-        //id속성으로 변수 선언없이 태그객체에 접근 가능(비표준). 131,132번째줄 주석처리했는데도 잘됨 WoW!
-        //시작태그/종료태그사이 내용으로 추가
+        // id속성은 페이지내 딱 하나만 존재할수 있으므로, id속성으로 변수(amount, result) 선언없이 태그객체에 접근 가능(비표준). 142,143번째줄 주석처리했는데도 잘됨 WoW!
+        // 시작태그/종료태그사이 내용으로 추가
         result.innerHTML = amount.value;
     }
     </script>
