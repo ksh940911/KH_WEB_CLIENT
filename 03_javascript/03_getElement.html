@@ -181,7 +181,7 @@
      * [name=subject]를 전체선택/해제
      * 
      * css선택자로 요소접근하기
-     * - document.querySelector(선택자): 선택자와 일치하는 하나의 요소를 리턴
+     * - document.querySelector(선택자): 선택자와 일치하는 하나의 요소(여러개라면 첫번째)를 리턴
      * - document.querySelectorAll(선택자): 선택자와 일치하는 모든 요소를 유사배열로 리턴
      */ 
     function test7(){
@@ -191,13 +191,12 @@
         var checkAll = document.querySelector("#checkAll");
         console.log(checkAll);
         for(var i = 0; i < subjects.length; i++){
-            //setter로써 checked : #checkAll의 checked여부(true | false)를 세팅
-            subjects[i].checked = checkAll.checked;
+            // setter로써 checked : #checkAll의 checked여부(true | false)를 세팅
+            // subjects[i].checked = true;
+            subjects[i].checked = checkAll.checked; // subjects[i]번지의 checked(true | false)는 checkAll의 checked여부(true | false)와 동일하게 따라가게됨.
             
             //부모 td요소 클래스값 제어
-            checkAll.checked
-                ? subjects[i].parentNode.classList.add("on") 
-                : subjects[i].parentNode.classList.remove("on");
+            checkAll.checked ? subjects[i].parentNode.classList.add("on") : subjects[i].parentNode.classList.remove("on");
         }
     }
 
@@ -205,6 +204,7 @@
      * 개별체크박스를 통해 전체선택 체크박스 제어하기
      */
     function test8(chk){
+        //
         //this로 던져진 tag객체
         // console.log(chk);
         // console.dir(chk);
@@ -212,18 +212,24 @@
         var parentTd = chk.parentNode;
         console.log(parentTd);
 
-        //태그객체의 classList속성을 통해서 다음 코드를 개선하라.
-        //replace(oldClass, newClass) : oldClass를 newClass로 교체
-        parentTd.classList.toggle("on"); // 업업그레이드버젼. but모두 선택하고 국어나 아무과목 해제하면 체크됬을때만 배경색이 입혀져야하는데 reverse되서 체크해제할때 배경색이 입혀지는 문제가 발견됨.  
+        //태그객체의 classList(여러 메서드를 가지고 있는 객체임)속성을 통해서 다음 코드를 개선하라.
+        parentTd.classList.toggle("on"); // 업그레이드.ver if else 조건절도 필요없어짐. but 모두 선택하고 국어나 아무과목 해제하면 체크됬을때만 배경색이 입혀져야하는데 reverse되서 체크해제할때 배경색이 입혀지는 문제가 발견됨. test7()에서 해결할 것.
+
+        /*
+        classList의 메서드 종류 : add | remove | contains | item | toggle | replace
+        replace(oldClass, newClass) : oldClass를 newClass로 교체 | replace(serious, whysoserious) : serious 클래스를 whysoserious 클래스로 바꿔줌.
+        */
+
+        //
         // if(chk.checked)
-        //     parentTd.classList.add("on"); | 업그레이드버젼
-        //     // parentTd.className = "on serious"; // 기존 class값이 제거되지 않도록 처리 | 기본버젼
+            // parentTd.classList.add("on"); // 업그레이드.ver
+            // parentTd.className = "on serious"; // 기존 class값(serious)이 제거되지 않도록 처리 | 기존.ver
         // else
-        //     parentTd.classList.remove("on"); | 업그레이드버젼
-        //     // parentTd.className = "serious"; | 기본버젼
+            // parentTd.classList.remove("on"); // 업그레이드.ver
+            // parentTd.className = "serious"; // 기존 class값(serious)이 제거되지 않도록 처리 | 기존.ver
 
 
-    // 전체 체크박스 제어 
+    // 전체 체크박스 제어(개별체크하다가 전체체크되면 모두 선택 체크되게, 하나라도 체크끄면 모두 선택 체크도 꺼지게)
     // function test8(chk){
         var subjects = document.querySelectorAll("[name=subject]");
         for(var i = 0; i < subjects.length; i++){
@@ -235,13 +241,14 @@
         checkAll.checked = true;
     } //방법1   
 
+    //
     // function test8(){
     //     var subjects = document.querySelectorAll("[name=subject]");
     //     var checkedSubjects = document.querySelectorAll("[name=subject]:checked");
     //     console.log(subjects);
     //     console.log(checkedSubjects);
     //     checkAll.checked = (subjects.length == checkedSubjects.length);
-    // } //방법2   
+    // } //방법2 강사.ver  
 
     // function test8(){
     //     var subjects = document.querySelectorAll("[name=subject]");
@@ -250,7 +257,7 @@
     //         checkAll.checked = true;
     //     else 
     //         checkAll.checked = false;
-    // } //방법3   
+    // } //방법3 원영이형 강사수정.ver
 
     </script>
 

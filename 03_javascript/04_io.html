@@ -8,20 +8,20 @@
     <script>
     function init() {
         alert("DOM작업이 완료되었습니다.");
-        document.write("<h1>새로쓰기</h1>");
+        // document.write("<h1>새로쓰기</h1>");
     }
     </script>
 </head>
 <body onload="init();">
     <!-- html문서내 태그는 브라우져가 모두 DOM document로 등록한다. -->
-    <!-- 모든 태그가 등록되고 나면, load이벤트가 발생! -->
+    <!-- 모든 태그가 등록되고 나면, load이벤트가 발생! 그때 뭘 시킬지 함수를 만들어두고 onload에 함수를 넣으면 실행할수 있음 -->
     <h1>Input | Output</h1>
     <input type="button" value="confirm" onclick="test1();">
     <input type="button" value="prompt" onclick="test2();">
     <script>
         
     /**
-     * 확인/취소 버튼을 통해 논리식처리를 지원 
+     * 확인/ 취소 버튼을 통해 논리식처리를 지원. 사용자에게 확인(true) / 취소(false)를 통해 어떤값을 결정하게 함. 
      */        
     function test1(){
         var bool = confirm("이 파일을 삭제하시겠습니까?");
@@ -36,19 +36,15 @@
      */ 
     function test2(){
         var name = prompt("당신의 이름은 무엇입니까?")
-        console.log(name); /* 블라블라치고 확인 -> 블라블라 | 아무것도안치고 확인 -> 공백("") | 취소 -> null */
+        console.log(name); // 3가지 경우 존재가능 : 1. 블라블라치고 확인 -> 블라블라 | 2. 아무것도안치고 확인 -> 공백("") | 3. 취소 -> null
 
-        //값이 있는 경우 true, 값이 없는 경우(null, undefined, "", 0) false
-        if(!name){ // == if(name == null || name == ""){
-            alert("올바른 이름을 입력하세요.")
+        // 값이 있는 경우 true, 값이 없는 경우(null, undefined, "", 0) false
+        // if(name == null || name == ""){ // 논리형의 조건식 name이 null이거나 name이 ""일 경우 ~해라!
+        if(!name){ // 자바와 달리 if안에 논리형의 조건식이 아닌 boolean형도 올수 있다. true면 ~해라!
+            alert("올바른 이름을 입력하세요.") // 취소했거나, 이름입력없이 확인을 누른경우
         }
-        // // 값이 있는 경우 true, 값이 없는 경우 false
-        // // 취소했거나, 이름입력없이 확인을 누른경우
-        // if(name == null || name == ""){
-        //     alert("올바른 이름을 입력하세요.")
-        // }
-        else {
-            alert("당신의 이름은 [" + name + "]입니다.");
+        else { // false면 ~해라!
+            alert("당신의 이름은 [" + name + "]입니다."); // 정상 입력시
         }
     }
     </script>
@@ -73,9 +69,9 @@
     }
 
     /**
-     * innerText : 태그안의 content.텍스트
+     * innerText : 태그안의 content. 자식태그랑 같이 입력해도 텍스트만 관심있음.
      * - getter : html태그무시, 텍스트만 가져옴.
-     * - setter : html태그로 parsing처리 없고, 단순 텍스트로 처리
+     * - setter : html태그로 parsing처리 없고(태그로서 인정하지 않는다는 얘기), 단순 텍스트로 처리
      */ 
     function test4(){
         // var str = prompt(".wrapper태그 내용을 입력하세요.");
@@ -95,10 +91,5 @@
         wrapper.outerHTML = "<mark>안녕, 나 새로 왔어</mark>";
     }
     </script>
-
-
-
-
-
 </body>
 </html>
