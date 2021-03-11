@@ -13,7 +13,7 @@
     };
     </script>
 </head>
-<body>
+<body data-text="body" onclick="displayMsg(event, this);">
     <h1>Event</h1>
     <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">W3Schools - HTML DOM Events</a>
     <h2>Event Handler Binding</h2>
@@ -124,29 +124,59 @@
         </fieldset>
     </form>
     <script>
-        /**
-         * 사용자 입력값 유효성검사
-         */ 
-        document.querySelector("form").onsubmit = function(e){
-            console.log(e);
-            //1.아이디검사
-            if(userId.value.length < 4){
-                alert("유효한 아이디를 입력하세요.");
-                userId.select();
-                return false;
-            }
-      
-            //2.비밀번호
-            if(pwd.value.length < 4){
-                alert("유효한 비밀번호를 입력하세요.");
-                pwd.select();
-                return false;
-            }
-            
-            //위의 유효성검사를 통과했다면, submit할수 있다.
-            return true;
-        };
-        </script>
-    
+    /**
+     * 사용자 입력값 유효성검사
+     */ 
+    document.querySelector("form").onsubmit = function(e){
+        console.log(e);
+        //1.아이디검사
+        if(userId.value.length < 4){
+            alert("유효한 아이디를 입력하세요.");
+            userId.select();
+            return false;
+        }
+
+        //2.비밀번호
+        if(pwd.value.length < 4){
+            alert("유효한 비밀번호를 입력하세요.");
+            pwd.select();
+            return false;
+        }
+        
+        //위의 유효성검사를 통과했다면, submit할수 있다.
+        return true;
+    };
+    </script>
+
+    <h2>Event Propagation - Bubbling</h2>
+    <!-- div.boxx.box$[data-text=box$]*3 -->
+    <div class="boxx box1" data-text="box1" onclick="displayMsg(event, this);">
+        <div class="boxx box2" data-text="box2" onclick="displayMsg(event, this);">
+            <div class="boxx box3" data-text="box3" onclick="displayMsg(event, this);"></div>
+        </div>
+    </div>
+    <style>
+    .boxx {
+        border: 1px solid #000;
+        padding: 20px;
+    }
+    .box1 {background-color: yellowgreen;}
+    .box2 {background-color: green;}
+    .box3 {background-color: springgreen;}
+    </style>
+    <script>
+    function displayMsg(e, boxx){
+        console.log(boxx.dataset.text);
+
+        //전파 방지
+        e.stopPropagation();
+    }
+
+    // document.querySelectorAll(".boxx").forEach(function(boxx, i){
+    //     boxx.addEventListener('click', function(e){
+    //         console.log(e.target.dataset.text);
+    //     });
+    // });
+    </script>
 </body>
 </html>

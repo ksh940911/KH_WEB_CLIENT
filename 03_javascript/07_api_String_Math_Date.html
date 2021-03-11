@@ -12,29 +12,29 @@
     <input type="button" value="@실습문제" onclick="test2();">
     <script>
     /**
-     * String 내장객체 : 문자열 관련 메서드를 제공
+     * String은 내장된 객체 : 문자열 관련 메서드를 제공
      */
     var test1 = function(){
-        var str = "Samsung Apple Xiomi";
-        console.log(str.length); // length속성 : 19
+        var str = "Samsung Apple Xiaomi";
+        console.log(str.length); // length속성 : 20 // 자바에서는 length() 함수였는데 자바스크립트에서는 속성임.
         console.log(str.toUpperCase()); // toUpperCase속성 : SAMSUNG APPLE XIOMI
         console.log(str.toLowerCase()); // toLowerCase속성 : samsung apple xiomi
         console.log(str.indexOf('ms')); // indexOf('')속성 : ''안의 값이 인덱스 몇번째에 위치하는가 | 2
-        console.log(str.lastIndexOf('i')); //lastIndexOf('')속성 : ''안의 값이 인덱스 뒤에서부터 몇번째에 위치하는가 | 18
-        console.log(str.charAt(0)); //charAt('')속성 : ''안의 인덱스값에 해당하는 자리의 값을 잘라서 보여줘라 | S
-        console.log(str[18]); //문자열 -> 문자배열취급 : 18번째 인덱스값에 해당하는 배열의 값을 보여줘라 | i
+        console.log(str.lastIndexOf('i')); // lastIndexOf('')속성 : ''안의 값이 인덱스 뒤에서부터 몇번째에 위치하는가 | 19
+        console.log(str.charAt(0)); // charAt('')속성 : ''안의 인덱스값에 해당하는 자리의 값을 잘라서 보여줘라 | S
+        console.log(str[0]); // 문자열 -> 문자배열취급 : 18번째 인덱스값에 해당하는 배열의 값을 보여줘라 | S
 
-        //문자열 일부를 리턴: 2번지 ms 잘라오기
-        //substring(start[, end]) end는 생략가능 생략하면 끝까지 가져옴('[]'기호는 생략가능하다는 뜻임)
-        console.log(str.substring(2,2)); //2번째 인덱스부터 4번째 인덱스 전까지 잘라서 보여줘라! | ms
-        console.log(str.substring(2)); //msung Apple Xiomi
+        // 문자열 일부를 리턴: 2번지 ms 잘라오기
+        // str.substring(start[, end]) end는 생략가능 생략하면 끝까지 가져옴('[]'기호는 생략가능하다는 뜻임)
+        console.log(str.substring(2,4)); // 2번째 인덱스부터 4번째 인덱스 전까지 잘라서 보여줘라! | ms
+        console.log(str.substring(2)); // msung Apple Xiaomi
 
-        //substr(start[, length])
-        console.log(str.substr(2, 2)); //2번째인덱스부터 2자리만큼 잘라서 보여줘라! | ms
-        console.log(str.substr(2)); //msung Apple Xiomi
+        // substr(start[, length])
+        console.log(str.substr(2, 2)); // 2번째인덱스부터 2자리만큼 잘라서 보여줘라! | ms
+        console.log(str.substr(2)); // msung Apple Xiaomi
 
         var arr = str.split(" ");
-        console.log(arr); //()괄호안의 값(공백)을 기준으로 split 분리시켜라! | ["Samsung", "Apple", "Xiomi"]
+        console.log(arr); // ()괄호안의 값(공백)을 기준으로 split 분리시켜라! | ["Samsung", "Apple", "Xiaomi"]
     };
 
     /**

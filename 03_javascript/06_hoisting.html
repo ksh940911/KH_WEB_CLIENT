@@ -9,10 +9,11 @@
 <body>
     <h1>Hoisting</h1>
     <script>
-    // var a; // var키워드로 선언된 변수는 hoisting 된다. 그래서 12번째줄 없이 14번째줄에 var a = "안녕";이라고 써도 hoisting되어 12번째줄처럼 작동시켜서 오류가 안남.
-    // function foo; //함수선언식 hoisting 된다. 21번째줄 13번째줄로 hoisging시킴. script뒤로
-    // var bar; // var키워드로 선언된 변수는 hoisting 된다.
-    console.log(a);  // undefined
+    // 스크립트 실행순서는 위에서 아래로 차례로 읽어가면서 실행되지만, 스크립트 실행(태그읽기)전 var나 함수선언식은 script태그 맨위로 끌어올려진다. 이걸 hoisting이라한다.
+    // var a; // var키워드로 선언된 변수는 script 태그 맨위로 hoisting 된다. 그래서 13번째줄 없이 17번째줄에 var a = "안녕";이라고 써도 hoisting되어 13번째줄처럼 작동시켜서 16번째줄에서 오류가 안남. 대신 값대입전이라 undefined가 뜸.
+    // function foo; //함수선언식도 script 태그 맨위로 hoisting 된다. 23번째줄 14번째줄로 hoisging시킴. 변수는 오류만 안나고 값대입이 안되서 undefined가 뜨지만 함수는 점프를 하기때문에 호출시 함수안에 내용까지 실행된다. 
+    // var bar; // var키워드로 선언된 변수는 hoisting 된다. 지금 함수가 아닌 변수가 hoisting된 상태인데 bar(); 이런식으로 함수로쓰려고 호출시키면 에러뜸. 컴퓨터입장에서 지금 bar는 undefined고, 함수가 담긴지 모르기때문에 " bar는 변수지 함수가아니라고!!!" 하면서 error 표시함. undefined에다가 함수처럼 undefined();라고 실행시켜봐야 컴퓨터가 호출을 못함. 함수가 아니니까!
+    console.log(a); // undefined
     var a = "안녕";
     
     foo();
@@ -21,19 +22,19 @@
      */
     function foo(){
         console.log("foo");
-    }
+    } // <- 함수 선언식은 함수의 끝이 문법적으로 명시가 되있기때문에 {}뒤에 ;(세미콜론) 안 찍어줘도 된다.
 
-    bar(); // Uncaught TypeError: bar is not a function | 실행오류뜸 지금 bar가 function()이 들어가있는게 아니고 hoisting만 되서 undefined인데 함수호출하라고 시키니까 실행못함. 오류가나면 그 하위의 코드는 실행불가!! 35번째줄도 연달아 실행못함.
+    // bar(); // Uncaught TypeError: bar is not a function | 실행오류뜸 지금 bar가 function()이 들어가있는게 아니고 hoisting만 되서 undefined인데 함수호출하라고 시키니까 실행못함.
+    // ※주의사항 : 오류가나면 그 하위의 코드는 실행불가!! 37번째줄도 연달아 실행못함.
+    
     /**
-     * 함수 표현식
-     * bar변수에 익명함수를 대입
+     * 함수 표현식 : 변수에 함수를 담는것(자바에서는 이런거 없음). 함수 표현식은 함수 선언식과 달리 값처럼 취급하기 때문에 {}; 이렇게 중괄호 뒤에 세미콜론을 찍어주어야 한다. 종료를 명시!
+     * bar변수에 익명(이름이없는)함수를 대입
      */
     var bar = function(){
         console.log("bar");
-    }
-
+    };
     bar(); // 뒤에서 호출하는건 아무문제가 안됨.
     </script>
-
 </body>
 </html>
