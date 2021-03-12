@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2021.03.08 실습문제1</title>
+</head>
+<body>
+	<script>
+	//1
+	var z = 50;
+	(function varTest(){
+		var z = 55;
+		z += 45;
+		console.log('varTest() : z=',z); // 100
+	}());
+	console.log('z=',z); // 50
+
+	//2
+	var y = 99;
+	(function varTest2(){
+		var x = 100;
+		var y = 9;
+		z = 1;
+		console.log('varTest2() : x+y+z=',x+y+z); // 110
+	}());
+	console.log('y+z=',y+z); // 100
+	// console.log('x+y+z=',x+y+z); // Uncaught ReferenceError: x is not defined
+
+	//3
+	//전역에서 실행한 for문의 내부변수 i
+	for (var i=1; i<=10; i++) {
+		console.log(i); // 1~10까지 출력
+	}
+	function getNum() {
+		console.log('getNum() : i=',i); // getNum() : i= 11
+	}
+	getNum();
+
+	//4 
+	function funcX(){
+		var num = 100;
+		return function(){
+			console.log('num=',num);
+		}
+	}
+	var num = 200;
+	var myf = funcX();
+    console.log(myf); // ƒ (){ console.log('num=',num); }
+	myf();
+	</script>
+</body>
+</html>

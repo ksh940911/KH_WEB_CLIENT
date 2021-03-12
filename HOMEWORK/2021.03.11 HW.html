@@ -15,13 +15,35 @@
     function testSSN(){
         var ssn = document.getElementById("ssn");
         // console.log(ssn.value);
-        if(/^[0-9][0-9][0-1][0-9][0-9][0-9]-[12345678]\d{6}$/.test(ssn.value)){
+        if(/^[0-9][0-9](0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])-[12345678]\d{6}$/.test(ssn.value)){
             alert("유효한 주민등록번호입니다.");
         }
         else{
             alert("유효하지않은 주민등록번호입니다.");
         }
     }
-    </script> 
+    </script>
+    <p>
+        @실습문제 : 주민번호 정규표현식 <br>
+        다음과 같은 input태그에서 주민번호를 체크하는 정규표현식을 작성해서, 유효한지 아닌지 alert를 통해 처리하세요.
+        <pre>900909-1234566</pre>
+    </p>
+    <label>주민번호 입력 : </label>
+    <input type="text" id="ssn">
+    <button type='button' onclick="testSSN();">실행확인</button>
+    <script>
+    function testSSN() {
+        var val = ssn.value;
+        // var re = /^\d\d\d\d\d\d-\d\d\d\d\d\d\d$/;
+        // var re = /^\d{6}-\d{7}$/;
+        // var re = /^\d{6}-[1234]\d{6}$/; // 999893-1234567
+        var re = /^\d{2}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])-[1234]\d{6}$/; 
+
+        if(re.test(val))
+            alert('유효한 주민번호입니다.');
+        else
+            alert('주민번호가 유효하지 않습니다.');
+    }
+    </script><!-- 강사정답 -->
 </body>
 </html>
