@@ -56,9 +56,10 @@
 
     var countChar = function(str, ch){
         var cnt = 0;
-        for(var i = 0; i  < str.length; i++){
-            if(str[i] == ch)
-            cnt++;
+        for(var i = 0; i < str.length; i++){
+            if(str[i] == ch){
+                cnt++;
+            }
         }
         return cnt;
     };
@@ -69,7 +70,7 @@
     <script>
     var test3 = function(){
         var num = 123.456;
-        console.log(Math.round(num)); //아무것도 기준이 없을때는 소수점기준으로 반올림 | 123
+        console.log(Math.round(num)); // 아무것도 기준이 없을때는 소수점기준으로 반올림 | 123
         console.log(Math.round(num * 100) / 100); // 12345.6을 소수점기준으로 반올림하고나서 12346된상태에서 / 100 | 123.46
         console.log(Math.ceil(num)); // 올림 | 124
         console.log(Math.ceil(num * 10) / 10); // 소수점기준으로 올림 | 123.5
@@ -242,7 +243,7 @@
         var ss = get2digit(dt.getSeconds());
         alert(yyyy + "/" + mm + "/" + dd 
             + "(" + dayArr[day] + ") " 
-            + hh + ":" + mi + ":" + ss);
+            + hh + ":" + mi + ":" + ss);                 
     };
 
     var get2digit = function(n){

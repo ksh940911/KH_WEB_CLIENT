@@ -28,6 +28,7 @@
     <input type="button" value="escaping" onclick="test10();">
     <input type="button" value="* + ?" onclick="test11();">
     <input type="button" value="{n,m}" onclick="test12();">
+    <input type="button" value="look around" onclick="test13();">
     <div id="area"></div>
     <script>
     /**
@@ -297,6 +298,64 @@
             console.log(re.test(s)); // false
         });
     }
+    /**
+    * Look Around : 문자열 검사후 최종패턴에는 포함되지 않는다.
+    * 
+    * 1. look ahead
+    *    - 000(?=(111)) : 000다음 111일치. 000만 최종반환
+    *    - 000(?!(111)) : 000다음 111일치하지 않아야함. 000만 최종반환
+    * 
+    * 2. look behind
+    *    - (?<=(111))000 : 000이전 111일치. 000만 최종반환
+    *    - (?<!(111))000 : 000이전 111일치하지 않아야함. 000만 최종 반환
+    * 
+    */ 
+    function test13(){
+        var s = "hello world hello Tom hello Jane"
+        // area.innerHTML = s.replace(/hello(?=( world))/g, '<mark>$&</mark>');
+        // area.innerHTML = s.replace(/hello(?!(\sworld))/g, '<mark>$&</mark>');
+        s = "hello world lotte world t world";
+        // area.innerHTML = s.replace(/(?<=hello )world/g, '<mark>$&</mark>');
+        area.innerHTML = s.replace(/(?<!hello )world/g, '<mark>$&</mark>');
+    }
+    </script>
+    <form action="">
+        <fieldset>
+            <legend>아이디 유효성검사</legend>
+            <input type="text" id="userId" name="userId" placeholder="아이디">
+            <input type="submit" value="제출">
+        </fieldset>
+    </form>
+    <script>
+    /**
+     * userId가 8~12자리, 영문자/숫자/특수문자 하나이상 포함, 영문자로 시작할때만 유효하다.
+     * 유효하지 않다면, 폼이 제출되어서는 안된다.
+     */ 
+    document.querySelector("form").onsubmit = function(){
+        var val = userId.value;
+    
+        //1.userId가 8~12자리 
+        if(/^.{8,12}$/.test(val) == false){
+            alert("아이디는 8~12자리여야 합니다.");
+            return false;
+        }
+        
+        //2.영문자/숫자/특수문자 *!^/@$ 하나이상 포함
+        if(
+            ((/[a-zA-Z]/.test(val)) && 
+            (/[0-9]/.test(val)) && 
+            (/[*!^/@$]/.test(val))) == false
+        ){
+            alert("아이디는 영문자/숫자/특수문자 *!^/@$ 하나이상 포함해야 합니다.");
+            return false;
+        }
+
+        //3.영문자로 시작
+        if(/^[a-zA-Z]/.test(val) == false){
+            alert("아이디는 영문자로 시작해야 합니다.");
+            return false;
+        }
+    };
     </script>
 </body>
 </html>
