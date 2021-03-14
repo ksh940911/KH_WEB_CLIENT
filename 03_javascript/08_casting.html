@@ -18,11 +18,12 @@
         console.log(7 * "7"); // 49
         console.log(7 / "7"); // 1
         console.log(7 % "4"); // 3 | 나머지값
+
         console.log(7 % "a"); // NaN : Not a Number 숫자로 자동형변환이 불가한 우항
         console.log(typeof(NaN)); // number(타입) cf)null - object(타입)
-
     }
     </script>
+    
     <h2>Number | parseInt | parseFloat</h2>
     <input type="button" value="실행" onclick="test2();">
     <script>
@@ -33,7 +34,7 @@
         console.log(parseInt(num)); // 1234 정수변환. 문자가 있어도 좌측부터 최대한 변환
         console.log(parseFloat(num)); // 1234.567 실수로 변환. 문자가 있어도 좌측부터 최대한 변환
     };
-    </script>
+    </script><br><br>
 
     <input type="number" id="num1" placeholder="숫자1">
     <input type="number" id="num2" placeholder="숫자2">
@@ -41,16 +42,16 @@
     <script>
     /**
      * #num1, #num2의 값을 더해서 출력하세요.
-     * 
-     * input태그의 value는 type속성과 관계없이 모두 string이다.
      */     
     var test3 = function(){
         var sum = Number(num1.value) + Number(num2.value);
         console.log(sum);
+        console.log("num1의 타입은 : " + typeof(num1.value)) // input태그의 value는 type속성과 관계없이 모두 string이다.
+        console.log("num2의 타입은 : " + typeof(num2.value)) // input태그의 value는 type속성과 관계없이 모두 string이다.
     };
     </script>
 
-    <h2>NaN | infinity</h2>
+    <h2>NaN | Infinity</h2>
     <input type="button" value="실행" onclick="test4();">
     <script>
         var test4 = function(){
@@ -60,7 +61,7 @@
             console.log(10 / "a"); // NaN과의 연산은 NaN이 나온다.
             console.log(typeof(10 / "a")); // number
 
-            var num = prompt("숫자를 입력하세요."); //123입력해보기 
+            var num = prompt("숫자를 입력하세요."); // 123입력해보기 
             console.log(typeof(num)); // string "123" 사용자가 입력한값은 일단 string으로 처리되는걸 알수있다.
 
             if(isNaN(num))
@@ -112,10 +113,8 @@
             }
             else{
                 console.log("#result가 존재하지 않음!"); // null
-                document.querySelector("body").innerHTML
-                    += "<h1>반갑습니다, [" + name + "]님~</h1>";
+                document.querySelector("body").innerHTML += "<h1>반갑습니다, [" + name + "]님~</h1>";
             }
-            
         }
         else{
             alert("올바른 이름을 입력하세요.");
@@ -123,7 +122,5 @@
     }
     </script>
     <h1 id="result"></h1><!-- 개발자도구 console에서 #result가 존재!이라고 뜸 --><!-- 주석처리하면 개발자도구 console에서 #result가 존재하지 않음!이라고 뜸 -->
-
-
 </body>
 </html>
