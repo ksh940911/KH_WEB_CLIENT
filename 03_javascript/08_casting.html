@@ -29,6 +29,7 @@
     var test2 = function(){
         var num = "1234.567원";
         console.log(Number(num)); // 1234.567 정수/실수로 변환 변환불가한 문자가 있으면 NaN을 리턴
+        console.log(typeof(Number(num)));
         console.log(parseInt(num)); // 1234 정수변환. 문자가 있어도 좌측부터 최대한 변환
         console.log(parseFloat(num)); // 1234.567 실수로 변환. 문자가 있어도 좌측부터 최대한 변환
     };
