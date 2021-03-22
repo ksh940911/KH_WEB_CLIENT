@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "HOMEWORK"
+		},
+		{
+			"path": "KH_SOLO_HOMEPAGE_PROJECT"
+		}
+	],
+	"settings": {
+		"liveServer.settings.port": 5502,
+		"liveServer.settings.multiRootWorkspaceName": "KH_SOLO_HOMEPAGE_PROJECT"
+	}
+}
